@@ -1,0 +1,104 @@
+import java.awt.EventQueue;
+
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JTextField;
+import javax.swing.JButton;
+
+public class TelaInicial {
+
+	private JFrame frame;
+	private JTextField textLogin;
+	private JTextField textSenha;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					TelaInicial window = new TelaInicial();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public TelaInicial() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 477, 359);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("LOGIN :");
+		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		lblNewLabel.setBounds(128, 124, 76, 31);
+		frame.getContentPane().add(lblNewLabel);
+		
+		textLogin = new JTextField();
+		textLogin.setBounds(196, 130, 138, 20);
+		frame.getContentPane().add(textLogin);
+		textLogin.setColumns(10);
+		
+		JLabel lblSenha = new JLabel("SENHA :");
+		lblSenha.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		lblSenha.setBounds(128, 180, 76, 31);
+		frame.getContentPane().add(lblSenha);
+		
+		textSenha = new JTextField();
+		textSenha.setColumns(10);
+		textSenha.setBounds(196, 186, 138, 20);
+		frame.getContentPane().add(textSenha);
+		
+		JLabel lblNewLabel_1 = new JLabel("BEM-VINDO A CENTRAL DO BANCO JURA");
+		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		lblNewLabel_1.setBounds(67, 47, 332, 46);
+		frame.getContentPane().add(lblNewLabel_1);
+		
+		JButton btnEntrar = new JButton("ENTRAR");
+		btnEntrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(checkLogin(textLogin.getText(),new String(textSenha.getText()))) {
+					JOptionPane.showMessageDialog(null, "Bem Vindo!");
+					TelaCliente c = new TelaCliente();
+					frame.setVisible(false);
+					c.main(null);
+				}else {
+					JOptionPane.showMessageDialog(null, "Dados Invalidos!","BANCO JURA",JOptionPane.ERROR_MESSAGE);
+				}
+				
+			}
+		});
+		btnEntrar.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+		btnEntrar.setBounds(196, 248, 99, 23);
+		frame.getContentPane().add(btnEntrar);
+	}
+
+public boolean checkLogin(String login, String senha) {
+		
+		
+		return login.equals("1234") && senha.equals("0000");
+	}
+	
+	
+}
