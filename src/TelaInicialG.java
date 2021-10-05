@@ -1,18 +1,15 @@
 import java.awt.EventQueue;
-
-
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
-public class TelaInicial {
+public class TelaInicialG {
 
 	private JFrame frame;
 	private JTextField textLogin;
@@ -25,7 +22,7 @@ public class TelaInicial {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaInicial window = new TelaInicial();
+					TelaInicialG window = new TelaInicialG();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -37,7 +34,7 @@ public class TelaInicial {
 	/**
 	 * Create the application.
 	 */
-	public TelaInicial() {
+	public TelaInicialG() {
 		initialize();
 	}
 
@@ -55,20 +52,14 @@ public class TelaInicial {
 		lblNewLabel.setBounds(128, 124, 76, 31);
 		frame.getContentPane().add(lblNewLabel);
 		
-		textLogin = new JTextField();
-		textLogin.setBounds(196, 130, 138, 20);
-		frame.getContentPane().add(textLogin);
-		textLogin.setColumns(10);
+		
 		
 		JLabel lblSenha = new JLabel("SENHA :");
 		lblSenha.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		lblSenha.setBounds(128, 180, 76, 31);
 		frame.getContentPane().add(lblSenha);
 		
-		textSenha = new JTextField();
-		textSenha.setColumns(10);
-		textSenha.setBounds(196, 186, 138, 20);
-		frame.getContentPane().add(textSenha);
+		
 		
 		JLabel lblNewLabel_1 = new JLabel("BEM-VINDO A CENTRAL DO BANCO JURA");
 		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 16));
@@ -80,7 +71,7 @@ public class TelaInicial {
 			public void actionPerformed(ActionEvent e) {
 				if(checkLogin(textLogin.getText(),new String(textSenha.getText()))) {
 					JOptionPane.showMessageDialog(null, "Bem Vindo!");
-					TelaCliente c = new TelaCliente();
+					TelaGerente c = new TelaGerente();
 					frame.setVisible(false);
 					
 					c.main(null);
@@ -111,14 +102,19 @@ public class TelaInicial {
 		btnVoltar.setBounds(10, 11, 79, 24);
 		frame.getContentPane().add(btnVoltar);
 		
+		textLogin = new JTextField();
+		textLogin.setColumns(10);
+		textLogin.setBounds(190, 130, 138, 20);
+		frame.getContentPane().add(textLogin);
 		
+		textSenha = new JTextField();
+		textSenha.setColumns(10);
+		textSenha.setBounds(190, 186, 138, 20);
+		frame.getContentPane().add(textSenha);
 	}
-
 public boolean checkLogin(String login, String senha) {
 		
 		
-		return login.equals("1234") && senha.equals("0000");
+		return login.equals("0000") && senha.equals("1234");
 	}
-	
-	
 }

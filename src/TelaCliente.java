@@ -30,7 +30,9 @@ public class TelaCliente {
 			}
 		});
 	}
-
+	
+	
+	
 	/**
 	 * Create the application.
 	 */
@@ -54,34 +56,33 @@ public class TelaCliente {
 		
 		JButton btnAplicar = new JButton("Aplicar na Conta");
 		btnAplicar.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		btnAplicar .addActionListener(new ActionListener() {
+		btnAplicar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			
-					TelaAplicaRetira c = new TelaAplicaRetira();
+					TelaAplicaRetira c = new TelaAplicaRetira(0);
 					frame.setVisible(false);
-					c.setTipo(0);
-					c.main(null);
+					c.main(null,0);
+					
 				
 				
 			}
 		});
-		btnAplicar.setBounds(132, 80, 203, 23);
+		btnAplicar.setBounds(132, 108, 203, 23);
 		frame.getContentPane().add(btnAplicar);
 		
 		JButton btnRetirar = new JButton("Retirar da Conta");
 		btnRetirar.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		btnRetirar .addActionListener(new ActionListener() {
+		btnRetirar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			
-					TelaAplicaRetira c = new TelaAplicaRetira();
+					TelaAplicaRetira c = new TelaAplicaRetira(1);
 					frame.setVisible(false);
-					c.setTipo(1);
-					c.main(null);
+					c.main(null, 1);
 				
 				
 			}
 		});
-		btnRetirar.setBounds(132, 113, 203, 23);
+		btnRetirar.setBounds(132, 141, 203, 23);
 		frame.getContentPane().add(btnRetirar);
 		
 		JButton btnVoltar = new JButton("<-- SAIR");
@@ -101,15 +102,13 @@ public class TelaCliente {
 		
 		JButton btnVerificarE = new JButton("Verificar o Extrato");
 		btnVerificarE.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		btnVerificarE.setBounds(132, 180, 203, 23);
-		btnVerificarE .addActionListener(new ActionListener() {
+		btnVerificarE.setBounds(132, 208, 203, 23);
+		btnVerificarE.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			
-				TelaVerificaConta c = new TelaVerificaConta();
+				TelaVerificaConta c = new TelaVerificaConta(0);
 					frame.setVisible(false);
-					c.setTipo(0);
-					c.main(null);
-				
+					c.main(null,0);
 				
 			}
 		});
@@ -117,29 +116,53 @@ public class TelaCliente {
 		
 		JButton btnVerificarS = new JButton("Verificar o Saldo");
 		btnVerificarS.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		btnVerificarS.setBounds(132, 147, 203, 23);
-		btnVerificarS .addActionListener(new ActionListener() {
+		btnVerificarS.setBounds(132, 175, 203, 23);
+		btnVerificarS.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			
-				TelaVerificaConta c = new TelaVerificaConta();
+				TelaVerificaConta c = new TelaVerificaConta(1);
 					frame.setVisible(false);
-					c.setTipo(1);
-					c.main(null);
-				
-				
+					
+					
+					
+					
+					
+					c.main(null,1);
 			}
 		});
 		frame.getContentPane().add(btnVerificarS);
 		
 		JButton btnAlterarSenha = new JButton("Alterar Senha");
 		btnAlterarSenha.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		btnAlterarSenha.setBounds(132, 250, 203, 23);
+		btnAlterarSenha.setBounds(132, 260, 203, 23);
+		btnAlterarSenha.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			
+				TelaAlterarSenha c = new TelaAlterarSenha(0);
+					frame.setVisible(false);
+					
+					c.main(null,0);
+			}
+		});
 		frame.getContentPane().add(btnAlterarSenha);
 		
 		JLabel lblNewLabel_1 = new JLabel("O que deseja fazer?");
 		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		lblNewLabel_1.setBounds(61, 46, 149, 14);
 		frame.getContentPane().add(lblNewLabel_1);
+		
+		JButton btnAbrirUmaConta = new JButton("Abrir uma Conta");
+		btnAbrirUmaConta.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		btnAbrirUmaConta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			
+				TelaCriarConta c = new TelaCriarConta();
+					frame.setVisible(false);
+					
+					c.main(null);
+			}
+		});
+		btnAbrirUmaConta.setBounds(132, 74, 203, 23);
+		frame.getContentPane().add(btnAbrirUmaConta);
 	}
-
 }

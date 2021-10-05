@@ -2,6 +2,8 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,44 +16,43 @@ public class TelaAplicaRetira {
 	private JFrame frame;
 	private JTextField textConta;
 	private JTextField textValor;
-	private int tipo;
 
-	public int getTipo() {
-		return tipo;
-	}
-
-	public void setTipo(int tipo) {
-		this.tipo = tipo;
-	}
+	
+	
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args, int tipo2) {
 		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaAplicaRetira window = new TelaAplicaRetira();
+					
+					TelaAplicaRetira window = new TelaAplicaRetira(tipo2);
 					window.frame.setVisible(true);
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		});
 	}
+	
+	
 
 	/**
 	 * Create the application.
 	 */
-	public TelaAplicaRetira() {
-		initialize();
+	public TelaAplicaRetira(int tipo) {
+		
+		initialize(tipo);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	public void initialize(int tipo) {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 477, 359);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -59,8 +60,10 @@ public class TelaAplicaRetira {
 		
 		JLabel lblNewLabel = new JLabel("CONTA :");
 		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblNewLabel.setBounds(113, 94, 79, 24);
+		lblNewLabel.setBounds(113, 94, 130, 24);
 		frame.getContentPane().add(lblNewLabel);
+		
+		
 		
 		textConta = new JTextField();
 		textConta.setBounds(191, 98, 130, 20);
@@ -74,32 +77,72 @@ public class TelaAplicaRetira {
 		
 		JLabel lblValor = new JLabel("VALOR :");
 		lblValor.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblValor.setBounds(113, 147, 79, 24);
+		lblValor.setBounds(113, 147, 130, 24);
 		frame.getContentPane().add(lblValor);
 		
 		JButton btnEfetuar = new JButton("EFETUAR");
 		btnEfetuar.setFont(new Font("Times New Roman", Font.BOLD, 13));
-		btnEfetuar .addActionListener(new ActionListener() {
+		btnEfetuar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
-					TelaCliente c = new TelaCliente();
-					frame.setVisible(false);
-					System.out.printf("\n\n\n%d\n\n\n",getTipo());
-					c.main(null);
+				
+					if(tipo == 0)
+					{
+						JOptionPane.showMessageDialog(null, "Dinheiro Adicionado a Conta!");
+						TelaCliente c = new TelaCliente();
+						frame.setVisible(false);
+						c.main(null);
+					}else if(tipo==1) {
+						JOptionPane.showMessageDialog(null, "Dinheiro Retirado da Conta!");
+						TelaCliente c = new TelaCliente();
+						frame.setVisible(false);
+						c.main(null);
+					}else if(tipo==2) {
+						JOptionPane.showMessageDialog(null, "Dinheiro Aplicado na Conta!");
+						TelaGerente c = new TelaGerente();
+						frame.setVisible(false);
+						c.main(null);
+					}else {
+						JOptionPane.showMessageDialog(null, "Dinheiro Retirado da Conta!");
+						TelaGerente c = new TelaGerente();
+						frame.setVisible(false);
+						c.main(null);
+					}
+					
 				
 				
 			}
 		});
-		btnEfetuar.setBounds(180, 213, 105, 23);
+		btnEfetuar.setBounds(180, 213, 130, 23);
 		frame.getContentPane().add(btnEfetuar);
 		
 		JButton btnVoltar = new JButton("<-- VOLTAR");
 		btnVoltar .addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
+				
+				if(tipo == 0)
+				{
+					
 					TelaCliente c = new TelaCliente();
 					frame.setVisible(false);
 					c.main(null);
+				}else if(tipo==1) {
+				
+					TelaCliente c = new TelaCliente();
+					frame.setVisible(false);
+					c.main(null);
+				}else if(tipo==2) {
+					
+					TelaGerente c = new TelaGerente();
+					frame.setVisible(false);
+					c.main(null);
+				}else {
+					
+					TelaGerente c = new TelaGerente();
+					frame.setVisible(false);
+					c.main(null);
+				}
+			
+					
 				
 				
 			}

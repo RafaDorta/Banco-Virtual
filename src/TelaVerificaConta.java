@@ -12,24 +12,18 @@ public class TelaVerificaConta {
 
 	private JFrame frame;
 	private JTextField textField;
-	private int tipo;
-
-	public int getTipo() {
-		return tipo;
-	}
-
-	public void setTipo(int tipo) {
-		this.tipo = tipo;
-	}
+	
+	
+	
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args, int tipo) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaVerificaConta window = new TelaVerificaConta();
+					TelaVerificaConta window = new TelaVerificaConta(tipo);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -41,14 +35,14 @@ public class TelaVerificaConta {
 	/**
 	 * Create the application.
 	 */
-	public TelaVerificaConta() {
-		initialize();
+	public TelaVerificaConta(int tipo2) {
+		initialize(tipo2);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(int tipo) {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 477, 359);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -67,7 +61,7 @@ public class TelaVerificaConta {
 		JButton btnEfetuar = new JButton("VERIFICAR");
 		btnEfetuar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(getTipo()==1) {
+				if(tipo==0) {
 					TelaExtrato c = new TelaExtrato();
 					frame.setVisible(false);
 					c.main(null);
