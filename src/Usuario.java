@@ -24,6 +24,6 @@ public abstract class Usuario {
             JOptionPane.showMessageDialog(null, "Senha alterada com sucesso!");
         }
         else
-        	JOptionPane.showMessageDialog(null, "A senha inserida não condiz com a registrada :(","BANCO JURA",JOptionPane.ERROR_MESSAGE);
+        	JOptionPane.showMessageDialog(null, "Dados inválidos","BANCO JURA",JOptionPane.ERROR_MESSAGE);
     }
 }

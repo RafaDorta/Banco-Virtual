@@ -59,11 +59,9 @@ public class PrimeiraTela {
 		btnNewButton.setBounds(147, 133, 153, 23);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
 					TelaInicialG c = new TelaInicialG();
 					frame.setVisible(false);
 					c.main(null);
-						
 			}
 		});
 		frame.getContentPane().add(btnNewButton);
@@ -72,19 +70,13 @@ public class PrimeiraTela {
 		btnCliente.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		btnCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
 					TelaInicial c = new TelaInicial();
 					frame.setVisible(false);
 					c.main(null);
-						
 			}
 		});
 		
-		
 		btnCliente.setBounds(147, 183, 153, 23);
 		frame.getContentPane().add(btnCliente);
-		
-		
-		
 	}
 }
