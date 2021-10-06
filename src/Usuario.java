@@ -5,7 +5,6 @@ public abstract class Usuario {
 	protected String login;
 	protected String senha;
 	
-	
 	public String getLogin() {
 		return login;
 	}
@@ -18,8 +17,6 @@ public abstract class Usuario {
 
 	public abstract void setSenha(String senha);
 	
-	
-	
 	public void alteraSenha(String senhaAntiga, String senhaNova) {
         if(senhaAntiga==senha)
         {
@@ -28,10 +25,5 @@ public abstract class Usuario {
         }
         else
         	JOptionPane.showMessageDialog(null, "A senha inserida não condiz com a registrada :(","BANCO JURA",JOptionPane.ERROR_MESSAGE);
-        
     }
-	
-
-	
-
 }
