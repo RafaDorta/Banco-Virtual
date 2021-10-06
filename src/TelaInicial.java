@@ -11,12 +11,13 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JPasswordField;
 
 public class TelaInicial {
 
 	private JFrame frame;
 	private JTextField textLogin;
-	private JTextField textSenha;
+	private JPasswordField passwordField;
 
 	/**
 	 * Launch the application.
@@ -65,11 +66,6 @@ public class TelaInicial {
 		lblSenha.setBounds(128, 180, 76, 31);
 		frame.getContentPane().add(lblSenha);
 		
-		textSenha = new JTextField();
-		textSenha.setColumns(10);
-		textSenha.setBounds(196, 186, 138, 20);
-		frame.getContentPane().add(textSenha);
-		
 		JLabel lblNewLabel_1 = new JLabel("BEM-VINDO A CENTRAL DO BANCO JURA");
 		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 16));
 		lblNewLabel_1.setBounds(67, 47, 332, 46);
@@ -110,6 +106,10 @@ public class TelaInicial {
 		btnVoltar.setBounds(10, 11, 79, 24);
 		frame.getContentPane().add(btnVoltar);
 		
+		passwordField = new JPasswordField();
+		passwordField.setBounds(196, 186, 138, 20);
+		frame.getContentPane().add(passwordField);
+		
 		
 	}
 
@@ -117,6 +117,4 @@ public boolean checkLogin(String login, String senha) {
 		Cliente u = new Cliente();
 		return login.equals(u.getLogin()) && senha.equals(u.getSenha());
 	}
-	
-	
 }
