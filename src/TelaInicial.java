@@ -82,7 +82,6 @@ public class TelaInicial {
 					JOptionPane.showMessageDialog(null, "Bem Vindo!");
 					TelaCliente c = new TelaCliente();
 					frame.setVisible(false);
-					
 					c.main(null);
 				}else {
 					JOptionPane.showMessageDialog(null, "Dados Invalidos!","BANCO JURA",JOptionPane.ERROR_MESSAGE);
@@ -115,9 +114,8 @@ public class TelaInicial {
 	}
 
 public boolean checkLogin(String login, String senha) {
-		
-		
-		return login.equals("1234") && senha.equals("0000");
+		Cliente u = new Cliente();
+		return login.equals(u.getLogin()) && senha.equals(u.getSenha());
 	}
 	
 	

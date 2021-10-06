@@ -60,9 +60,9 @@ public class TelaGerente {
 		btnVoltar.setBounds(10, 11, 79, 24);
 		frame.getContentPane().add(btnVoltar);
 		
-		JLabel lblNewLabel = new JLabel("Bem Vindo @user");
+		JLabel lblNewLabel = new JLabel("Bem Vindo");
 		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblNewLabel.setBounds(163, 11, 165, 14);
+		lblNewLabel.setBounds(163, 11, 79, 14);
 		frame.getContentPane().add(lblNewLabel);
 		
 		JButton btnVerificarClientes = new JButton("Verificar Clientes");
@@ -152,6 +152,10 @@ public class TelaGerente {
 			}
 		});
 		frame.getContentPane().add(btnAlterarSenha);
+		
+		JLabel lblNewLabel_1 = new JLabel("New label");
+		lblNewLabel_1.setBounds(364, 27, 46, 14);
+		frame.getContentPane().add(lblNewLabel_1);
 		
 	}
 
