@@ -7,5 +7,4 @@ public class ContaCorrente extends Contas {
 		setTipo(1);
 		setRendimento(0);
 	}
-	
 }
