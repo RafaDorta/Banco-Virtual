@@ -113,7 +113,7 @@ public class TelaInicial {
 		
 	}
 
-public boolean checkLogin(String login, String senha) {
+	public boolean checkLogin(String login, String senha) {
 		Cliente u = new Cliente();
 		return login.equals(u.getLogin()) && senha.equals(u.getSenha());
 	}
