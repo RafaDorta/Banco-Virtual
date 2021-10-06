@@ -112,9 +112,11 @@ public class TelaInicialG {
 		textSenha.setBounds(190, 186, 138, 20);
 		frame.getContentPane().add(textSenha);
 	}
-public boolean checkLogin(String login, String senha) {
-		
-		
-		return login.equals("0000") && senha.equals("1234");
+	
+	public boolean checkLogin(String login, String senha) {
+		Gerente u = new Gerente();
+		return login.equals(u.getLogin()) && senha.equals(u.getSenha());
 	}
+	
+	
 }

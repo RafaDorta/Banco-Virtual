@@ -49,10 +49,10 @@ public class TelaCliente {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Bem Vindo @user");
-		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblNewLabel.setBounds(163, 11, 165, 14);
-		frame.getContentPane().add(lblNewLabel);
+		//JLabel lblNewLabel = new JLabel("Bem Vindo " + c1.getLogin());
+		//lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		//lblNewLabel.setBounds(163, 11, 165, 14);
+		//frame.getContentPane().add(lblNewLabel);
 		
 		JButton btnAplicar = new JButton("Aplicar na Conta");
 		btnAplicar.setFont(new Font("Times New Roman", Font.BOLD, 15));
@@ -122,11 +122,6 @@ public class TelaCliente {
 			
 				TelaVerificaConta c = new TelaVerificaConta(1);
 					frame.setVisible(false);
-					
-					
-					
-					
-					
 					c.main(null,1);
 			}
 		});
