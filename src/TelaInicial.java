@@ -78,7 +78,8 @@ public class TelaInicial {
 		JButton btnEntrar = new JButton("ENTRAR");
 		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(checkLogin(textLogin.getText(),new String(textSenha.getText()))) {
+				Menu m = new Menu();
+				if(m.checkLogin(textLogin.getText(),new String(textSenha.getText()))) {
 					JOptionPane.showMessageDialog(null, "Bem Vindo!");
 					TelaCliente c = new TelaCliente();
 					frame.setVisible(false);
@@ -102,21 +103,10 @@ public class TelaInicial {
 					PrimeiraTela c = new PrimeiraTela();
 					frame.setVisible(false);
 					c.main(null);
-				
-				
 			}
 		});
 		btnVoltar.setFont(new Font("Century", Font.PLAIN, 8));
 		btnVoltar.setBounds(10, 11, 79, 24);
-		frame.getContentPane().add(btnVoltar);
-		
-		
+		frame.getContentPane().add(btnVoltar);	
 	}
-
-	public boolean checkLogin(String login, String senha) {
-		Cliente u = new Cliente();
-		return login.equals(u.getLogin()) && senha.equals(u.getSenha());
-	}
-	
-	
 }
