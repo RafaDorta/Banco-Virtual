@@ -1,7 +1,4 @@
 import java.awt.EventQueue;
-
-
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -14,16 +11,6 @@ import javax.swing.JButton;
 
 public class PrimeiraTela {
 	
-	private int flag;
-
-	public int getFlag() {
-		return flag;
-	}
-
-	public void setFlag(int flag) {
-		this.flag = flag;
-	}
-
 	private JFrame frame;
 	ImageIcon logo = new ImageIcon(getClass().getResource("Jura.png"));
 
@@ -31,7 +18,7 @@ public class PrimeiraTela {
 	/**
 	 * Launch the application.
 	 */
-	public void main(String[] args) {
+	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -56,7 +43,7 @@ public class PrimeiraTela {
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	public void initialize() {
+	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 477, 359);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -77,9 +64,8 @@ public class PrimeiraTela {
 		btnNewButton.setBounds(155, 198, 153, 23);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Menu m = new Menu();
 				frame.setVisible(false);
-				m.programa(0);
+				TelaInicialG.main(null);
 			}
 		});
 		frame.getContentPane().add(btnNewButton);
@@ -88,12 +74,8 @@ public class PrimeiraTela {
 		btnCliente.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		btnCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
-				Menu m = new Menu();
 				frame.setVisible(false);
-				m.programa(1);
-				
-				
+				TelaInicial.main(null);
 			}
 		});
 		

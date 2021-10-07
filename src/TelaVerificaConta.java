@@ -13,9 +13,6 @@ public class TelaVerificaConta {
 	private JFrame frame;
 	private JTextField textField;
 	
-	
-	
-
 	/**
 	 * Launch the application.
 	 */
@@ -62,13 +59,11 @@ public class TelaVerificaConta {
 		btnEfetuar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(tipo==0) {
-					TelaExtrato c = new TelaExtrato();
 					frame.setVisible(false);
-					c.main(null);
+					TelaExtrato.main(null);
 				}else {
-					TelaSaldo c = new TelaSaldo();
 					frame.setVisible(false);
-					c.main(null);
+					TelaSaldo.main(null);
 				}
 			}
 		});
@@ -80,20 +75,11 @@ public class TelaVerificaConta {
 		btnVoltar.setFont(new Font("Century", Font.PLAIN, 7));
 		btnVoltar .addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
-					TelaCliente c = new TelaCliente();
 					frame.setVisible(false);
-					c.main(null);
-				
-				
+					TelaCliente.main(null);
 			}
 		});
 		btnVoltar.setBounds(10, 11, 79, 24);
 		frame.getContentPane().add(btnVoltar);
-		
-		
-		
-		
 	}
-
 }

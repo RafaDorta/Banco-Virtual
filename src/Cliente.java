@@ -6,11 +6,11 @@ public class Cliente extends Usuario {
 	private ArrayList<Contas> contas = new ArrayList<Contas>();
 
 	public void setLogin(String login) {
-		this.login = "jura";
+		this.login = login;
 	}
 
 	public void setSenha(String senha) {
-		this.senha = "1234";
+		this.senha = senha;
 	}
 
 	public String getGerente() {

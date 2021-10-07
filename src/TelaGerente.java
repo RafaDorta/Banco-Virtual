@@ -48,12 +48,8 @@ public class TelaGerente {
 		JButton btnVoltar = new JButton("<-- SAIR");
 		btnVoltar .addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
-					PrimeiraTela c = new PrimeiraTela();
 					frame.setVisible(false);
-					c.main(null);
-				
-				
+					PrimeiraTela.main(null);
 			}
 		});
 		btnVoltar.setFont(new Font("Century", Font.PLAIN, 8));
@@ -69,11 +65,8 @@ public class TelaGerente {
 		btnVerificarClientes.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		btnVerificarClientes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
-				TelaVerificarContas c = new TelaVerificarContas();
 					frame.setVisible(false);
-					
-					c.main(null);
+					TelaVerificarContas.main(null);
 			}
 		});
 		btnVerificarClientes.setBounds(132, 74, 203, 23);
@@ -98,12 +91,8 @@ public class TelaGerente {
 		btnAplicarDinheiro.setBounds(132, 142, 203, 23);
 		btnAplicarDinheiro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
-				TelaAplicaRetira c = new TelaAplicaRetira(2);
 				frame.setVisible(false);
-				c.main(null,2);
-				
-				
+				TelaAplicaRetira.main(null,2);
 			}
 		});
 		frame.getContentPane().add(btnAplicarDinheiro);
@@ -113,13 +102,8 @@ public class TelaGerente {
 		btnFazerTransferencia.setBounds(132, 176, 203, 23);
 		btnFazerTransferencia.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
-					TelaTransferencia c = new TelaTransferencia();
 					frame.setVisible(false);
-					
-					c.main(null);
-				
-				
+					TelaTransferencia.main(null);			
 			}
 		});
 		frame.getContentPane().add(btnFazerTransferencia);
@@ -129,12 +113,8 @@ public class TelaGerente {
 		btnFazerRetirada.setBounds(132, 210, 203, 23);
 		btnFazerRetirada.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
-					TelaAplicaRetira c = new TelaAplicaRetira(3);
 					frame.setVisible(false);
-					c.main(null,3);
-				
-				
+					TelaAplicaRetira.main(null,3);
 			}
 		});
 		frame.getContentPane().add(btnFazerRetirada);
@@ -144,11 +124,8 @@ public class TelaGerente {
 		btnAlterarSenha.setBounds(132, 262, 203, 23);
 		btnAlterarSenha.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
-				TelaAlterarSenha c = new TelaAlterarSenha(1);
 					frame.setVisible(false);
-					
-					c.main(null,1);
+					TelaAlterarSenha.main(null,1);
 			}
 		});
 		frame.getContentPane().add(btnAlterarSenha);

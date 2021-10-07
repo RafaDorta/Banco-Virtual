@@ -69,13 +69,13 @@ public class TelaInicialG {
 		
 		JButton btnEntrar = new JButton("ENTRAR");
 		btnEntrar.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
-				if(checkLogin(textLogin.getText(),new String(passwordField.getText()))) {
+				Menu m = new Menu();
+				if(m.checkLogin(textLogin.getText(),new String(passwordField.getText()),0)) {
 					JOptionPane.showMessageDialog(null, "Bem Vindo!");
-					TelaGerente c = new TelaGerente();
 					frame.setVisible(false);
-					
-					c.main(null);
+					TelaGerente.main(null);
 				}else {
 					JOptionPane.showMessageDialog(null, "Dados Invalidos!","BANCO JURA",JOptionPane.ERROR_MESSAGE);
 				}
@@ -91,12 +91,8 @@ public class TelaInicialG {
 		JButton btnVoltar = new JButton("<-- VOLTAR");
 		btnVoltar .addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
-					PrimeiraTela c = new PrimeiraTela();
 					frame.setVisible(false);
-					c.main(null);
-				
-				
+					PrimeiraTela.main(null);
 			}
 		});
 		btnVoltar.setFont(new Font("Century", Font.PLAIN, 8));
@@ -112,10 +108,5 @@ public class TelaInicialG {
 		passwordField.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		passwordField.setBounds(190, 186, 138, 20);
 		frame.getContentPane().add(passwordField);
-	}
-	
-	public boolean checkLogin(String login, String senha) {
-		Gerente u = new Gerente();
-		return login.equals(u.getLogin()) && senha.equals(u.getSenha());
 	}
 }
