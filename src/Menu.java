@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Menu {
 	
-	private ArrayList<Cliente> clientes = new ArrayList<Cliente>();
+	private static ArrayList<Cliente> clientes = new ArrayList<Cliente>();
 	private static ArrayList<Gerente> gerentes = new ArrayList<Gerente>();
 	
 	public boolean checkLogin(String login, String senha, int flag) {
@@ -28,11 +28,26 @@ public class Menu {
 		return false;
 	}
 	
+	public static void criaUsuario(String login, String senha,int flag) {
+		if(flag==1) { //criar cliente
+			Cliente newCliente = new Cliente();
+			newCliente.setLogin(login);
+			newCliente.setSenha(senha);
+			clientes.add(newCliente);
+			
+		} else { //criar gerente
+			Gerente newGerente = new Gerente();
+			newGerente.setLogin(login);
+			newGerente.setSenha(senha);
+			gerentes.add(newGerente);
+		}
+	}
+	
 	public static void main(String[] args) {
 		
 		Gerente admin = new Gerente();
-		admin.setLogin("bbb");
-		admin.setSenha("456");
+		admin.setLogin("admin");
+		admin.setSenha("senha");
 		gerentes.add(admin);
 		
 		PrimeiraTela.main(args);
