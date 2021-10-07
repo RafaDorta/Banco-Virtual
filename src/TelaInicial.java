@@ -74,7 +74,7 @@ public class TelaInicial {
 		JButton btnEntrar = new JButton("ENTRAR");
 		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(checkLogin(textLogin.getText(),new String(textSenha.getText()))) {
+				if(checkLogin(textLogin.getText(),new String(passwordField.getText()))) {
 					JOptionPane.showMessageDialog(null, "Bem Vindo!");
 					TelaCliente c = new TelaCliente();
 					frame.setVisible(false);
@@ -107,6 +107,7 @@ public class TelaInicial {
 		frame.getContentPane().add(btnVoltar);
 		
 		passwordField = new JPasswordField();
+		passwordField.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		passwordField.setBounds(196, 186, 138, 20);
 		frame.getContentPane().add(passwordField);
 		
@@ -115,6 +116,8 @@ public class TelaInicial {
 
 	public boolean checkLogin(String login, String senha) {
 		Cliente u = new Cliente();
+		u.setLogin(login);
+		u.setSenha(senha);
 		return login.equals(u.getLogin()) && senha.equals(u.getSenha());
 	}
 }

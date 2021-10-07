@@ -1,21 +1,38 @@
 import java.awt.EventQueue;
 
+
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
+
 public class PrimeiraTela {
+	
+	private int flag;
+
+	public int getFlag() {
+		return flag;
+	}
+
+	public void setFlag(int flag) {
+		this.flag = flag;
+	}
 
 	private JFrame frame;
+	ImageIcon logo = new ImageIcon(getClass().getResource("Sem Título-1.png"));
+	
+	
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -24,8 +41,10 @@ public class PrimeiraTela {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+				
 			}
 		});
+		
 	}
 
 	/**
@@ -38,7 +57,7 @@ public class PrimeiraTela {
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	public void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 477, 359);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -46,22 +65,22 @@ public class PrimeiraTela {
 		
 		JLabel lblNewLabel = new JLabel("Deseja entrar como?");
 		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblNewLabel.setBounds(45, 81, 144, 14);
+		lblNewLabel.setBounds(45, 146, 144, 14);
 		frame.getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("BEM-VINDO A CENTRAL DO BANCO JURA");
 		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 19));
-		lblNewLabel_1.setBounds(35, 24, 416, 46);
+		lblNewLabel_1.setBounds(35, 89, 392, 46);
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		JButton btnNewButton = new JButton("GERENTE");
 		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		btnNewButton.setBounds(147, 133, 153, 23);
+		btnNewButton.setBounds(155, 198, 153, 23);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-					TelaInicialG c = new TelaInicialG();
-					frame.setVisible(false);
-					c.main(null);
+				Menu m = new Menu();
+				frame.setVisible(false);
+				m.programa(0);
 			}
 		});
 		frame.getContentPane().add(btnNewButton);
@@ -70,13 +89,24 @@ public class PrimeiraTela {
 		btnCliente.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		btnCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-					TelaInicial c = new TelaInicial();
-					frame.setVisible(false);
-					c.main(null);
+			
+				Menu m = new Menu();
+				frame.setVisible(false);
+				m.programa(1);
+				
+				
 			}
 		});
 		
-		btnCliente.setBounds(147, 183, 153, 23);
+		btnCliente.setBounds(155, 248, 153, 23);
 		frame.getContentPane().add(btnCliente);
+		
+		JLabel lblNewLabel_2 = new JLabel("New label");
+		lblNewLabel_2.setBounds(191, 11, 80, 80);
+		frame.getContentPane().add(lblNewLabel_2);
+		lblNewLabel_2.setIcon(logo);
+		
+		
 	}
+	
 }
