@@ -25,9 +25,8 @@ public class PrimeiraTela {
 	}
 
 	private JFrame frame;
-	ImageIcon logo = new ImageIcon(getClass().getResource("Sem Título-1.png"));
-	
-	
+	ImageIcon logo = new ImageIcon(getClass().getResource("Jura.png"));
+
 
 	/**
 	 * Launch the application.
@@ -102,11 +101,10 @@ public class PrimeiraTela {
 		frame.getContentPane().add(btnCliente);
 		
 		JLabel lblNewLabel_2 = new JLabel("New label");
-		lblNewLabel_2.setBounds(191, 11, 80, 80);
-		frame.getContentPane().add(lblNewLabel_2);
-		lblNewLabel_2.setIcon(logo);
-		
-		
+
+    lblNewLabel_2.setBounds(191, 11, 80, 80);
+    frame.getContentPane().add(lblNewLabel_2);
+    lblNewLabel_2.setIcon(logo);
 	}
 	
 }
