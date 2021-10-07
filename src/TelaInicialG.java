@@ -8,12 +8,13 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.JPasswordField;
 
 public class TelaInicialG {
 
 	private JFrame frame;
 	private JTextField textLogin;
-	private JTextField textSenha;
+	private JPasswordField passwordField;
 
 	/**
 	 * Launch the application.
@@ -69,7 +70,7 @@ public class TelaInicialG {
 		JButton btnEntrar = new JButton("ENTRAR");
 		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(checkLogin(textLogin.getText(),new String(textSenha.getText()))) {
+				if(checkLogin(textLogin.getText(),new String(passwordField.getText()))) {
 					JOptionPane.showMessageDialog(null, "Bem Vindo!");
 					TelaGerente c = new TelaGerente();
 					frame.setVisible(false);
@@ -107,16 +108,14 @@ public class TelaInicialG {
 		textLogin.setBounds(190, 130, 138, 20);
 		frame.getContentPane().add(textLogin);
 		
-		textSenha = new JTextField();
-		textSenha.setColumns(10);
-		textSenha.setBounds(190, 186, 138, 20);
-		frame.getContentPane().add(textSenha);
+		passwordField = new JPasswordField();
+		passwordField.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		passwordField.setBounds(190, 186, 138, 20);
+		frame.getContentPane().add(passwordField);
 	}
 	
 	public boolean checkLogin(String login, String senha) {
 		Gerente u = new Gerente();
 		return login.equals(u.getLogin()) && senha.equals(u.getSenha());
 	}
-	
-	
 }
