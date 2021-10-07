@@ -6,6 +6,10 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JTextArea;
+import javax.swing.JList;
+import javax.swing.JComboBox;
+import javax.swing.JRadioButton;
 
 public class TelaVerificarContas {
 
@@ -68,6 +72,13 @@ public class TelaVerificarContas {
 		lblNome.setBounds(69, 52, 88, 14);
 		frame.getContentPane().add(lblNome);
 		
+		JTextArea textArea = new JTextArea();
+		textArea.setBounds(32, 78, 114, 198);
+		frame.getContentPane().add(textArea);
+		
+		JList list = new JList();
+		list.setBounds(279, 77, 126, 143);
+		frame.getContentPane().add(list);
+		
 	}
-
 }
