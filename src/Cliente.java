@@ -21,8 +21,12 @@ public class Cliente extends Usuario {
 		this.gerente = gerente;
 	}
 	
-	public void abrirConta() {
-		//adiciona uma conta na array
+	public void abrirConta(int numeroConta, int tipoConta) {
+		Contas newConta = new Contas();
+		newConta.setConta(numeroConta);
+		newConta.setTipo(tipoConta);
+		
+		contas.add(newConta);
 	}
 	
 	public void aplicaDinheiro(int conta, double valor) {
