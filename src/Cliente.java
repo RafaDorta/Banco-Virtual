@@ -21,7 +21,7 @@ public class Cliente extends Usuario {
 		this.gerente = gerente;
 	}
 	
-	public void abrirConta(int numeroConta, int tipoConta) {
+	public void abrirConta(int numeroConta, String tipoConta) {
 		Contas newConta = new Contas();
 		newConta.setConta(numeroConta);
 		newConta.setTipo(tipoConta);
@@ -84,6 +84,16 @@ public class Cliente extends Usuario {
 	}
 	
 	public void verificaExtrato(int conta) {
-		//verifica extrato (apresentar todas as ações, ou seja, todas as aplicações e retiradas feitas)
+		for(Contas c : contas) {
+			if(conta == c.getConta()) {
+				c.extrato();
+			}
+		}
+	}
+	
+	public void printContas() {
+		for(Contas c : contas) {
+			c.infosConta();
+		}
 	}
 }

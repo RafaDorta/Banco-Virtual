@@ -48,7 +48,7 @@ public class Menu {
 		}
 	}
 	
-	public static void acoesCliente(int acao,int tipoConta,int conta,double valor) {
+	public static void acoesCliente(int acao,String tipoConta,int conta,double valor) {
 		switch(acao)
 		{
 			case 1 :
@@ -73,7 +73,7 @@ public class Menu {
 		switch(acao)
 		{
 			case 1 :
-				gerenteAtual.verificaClienteConta();
+				gerenteAtual.verificaClienteConta(clientes);
 				break;
 			case 2 :
 				gerenteAtual.verificaInfosConta();

@@ -6,14 +6,14 @@ public class Contas {
 	private double Saldo;
 	private double Limite;
 	private double Rendimento;
-	private int Tipo;
+	private String Tipo;
 	private ArrayList<String> extrato = new ArrayList<String>();
 	
-	public int getTipo() {
+	public String getTipo() {
 		return Tipo;
 	}
 	
-	public void setTipo(int tipo) {
+	public void setTipo(String tipo) {
 		Tipo = tipo;
 	}
 	
@@ -70,5 +70,16 @@ public class Contas {
 	{
 			Saldo = Saldo + X;
 			extrato.add("Deposito de " + X);
+	}
+	
+	public void extrato() {
+		for(String ext : extrato) {
+			System.out.println(ext);
+		}
+	}
+	
+	public void infosConta() {
+		System.out.printf("Número da conta: ",this.getConta());
+		System.out.printf("\nTipo de conta: ",this.getTipo());
 	}
 }

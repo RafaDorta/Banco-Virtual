@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class Gerente extends Usuario{
 
@@ -9,8 +10,13 @@ public class Gerente extends Usuario{
 		this.login = login;
 	}
 	
-	public void verificaClienteConta() {
-		//verifica as contas dos seus Clientes
+	public void verificaClienteConta(ArrayList<Cliente> clientes) {
+		for(Cliente c : clientes) {
+			if(this.getLogin().equals(c.getGerente())) {
+				System.out.println(c.getLogin());
+				c.printContas();
+			}
+		}
 	}
 	
 	public void verificaInfosConta() {
