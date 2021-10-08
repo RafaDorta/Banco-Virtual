@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class Contas {
 
@@ -6,6 +7,7 @@ public class Contas {
 	private double Limite;
 	private double Rendimento;
 	private int Tipo;
+	private ArrayList<String> extrato = new ArrayList<String>();
 	
 	public int getTipo() {
 		return Tipo;
@@ -21,11 +23,6 @@ public class Contas {
 	
 	public void setRendimento(double rendimento) {
 		Rendimento = rendimento;
-	}
-	
-	public void Rende()
-	{
-		Saldo = Saldo + (Saldo * Rendimento/ 100);
 	}
 	
 	public int getConta() {
@@ -52,6 +49,12 @@ public class Contas {
 		Limite = limite;
 	}
 	
+	public void Rende()
+	{
+		Saldo = Saldo + (Saldo * Rendimento/ 100);
+		extrato.add("Rendimento de " + (Saldo * Rendimento/ 100));
+	}
+	
 	public void sacar(double X)
 	{
 		if(Saldo - X < Limite) {
@@ -59,14 +62,13 @@ public class Contas {
 		}
 		else {
 			Saldo = Saldo - X;	
+			extrato.add("Saque de " + X);
 		}
-		
 	}
 	
 	public void depositar(double X)
 	{
-			Saldo = Saldo + X;	
+			Saldo = Saldo + X;
+			extrato.add("Deposito de " + X);
 	}
-	
-	
 }

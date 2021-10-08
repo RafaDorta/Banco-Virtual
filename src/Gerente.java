@@ -9,22 +9,6 @@ public class Gerente extends Usuario{
 		this.login = login;
 	}
 	
-	public Usuario cadastrarUsuario(int tipo,String newUsuario,String newSenha) {
-		if(tipo == 0) {
-			Cliente c = new Cliente();
-			c.setGerente(this.login);
-			c.setLogin(newUsuario);
-			c.setSenha(newSenha);
-			return c;
-			
-		}else {
-			Gerente g = new Gerente();
-			g.setLogin(newUsuario);
-			g.setSenha(newSenha);
-			return g;
-		}
-	}
-	
 	public void verificaClienteConta() {
 		//verifica as contas dos seus Clientes
 	}
@@ -37,11 +21,11 @@ public class Gerente extends Usuario{
 		//aplicação de dinheiro pra um determinado cliente
 	}
 	
-	public void transfere(Cliente c1, Cliente c2, int conta1, int conta2) {
+	public void transfere(Cliente c1, Cliente c2, int conta1, int conta2,double valor) {
 		//faz transferencia de dinheiro entre dois clientes 
 	}
 	
-	public void retira(Cliente cliente, int conta) {
+	public void retira(Cliente cliente, int conta,double valor) {
 		//faz retiradas maiores de R$ 110.000,00
 	}
 	
