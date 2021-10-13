@@ -3,7 +3,7 @@ public class ContaEspecial extends Contas{
 	
 	public ContaEspecial()
 	{
-		setTipo(3);
+		setTipo("Especial");
 		setRendimento(0);
 	}
 }

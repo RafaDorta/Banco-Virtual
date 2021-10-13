@@ -49,12 +49,8 @@ public class TelaSaldo {
 		JButton btnVoltar = new JButton("<-- VOLTAR");
 		btnVoltar .addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
-					TelaCliente c = new TelaCliente();
 					frame.setVisible(false);
-					c.main(null);
-				
-				
+					TelaCliente.main(null);
 			}
 		});
 		btnVoltar.setFont(new Font("Century", Font.PLAIN, 7));

@@ -50,12 +50,8 @@ public class TelaVerificarContas {
 		JButton btnVoltar = new JButton("<-- VOLTAR");
 		btnVoltar .addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
-					TelaGerente c = new TelaGerente();
 					frame.setVisible(false);
-					c.main(null);
-				
-				
+					TelaGerente.main(null);
 			}
 		});
 		btnVoltar.setFont(new Font("Century", Font.PLAIN, 8));
