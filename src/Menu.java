@@ -37,7 +37,7 @@ public class Menu {
 			Cliente newCliente = new Cliente();
 			newCliente.setLogin(login);
 			newCliente.setSenha(senha);
-			newCliente.setGerente(gerenteAtual.login);
+			newCliente.setGerente(gerenteAtual.getLogin());
 			clientes.add(newCliente);
 			
 		} else { //criar gerente

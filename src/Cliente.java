@@ -5,6 +5,10 @@ public class Cliente extends Usuario {
 	private String gerente;
 	private ArrayList<Contas> contas = new ArrayList<Contas>();
 
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	
 	public void setLogin(String login) {
 		this.login = login;
 	}
@@ -93,7 +97,7 @@ public class Cliente extends Usuario {
 	
 	public void printContas() {
 		for(Contas c : contas) {
-			c.infosConta();
+			System.out.println(c.getConta());
 		}
 	}
 }

@@ -1,7 +1,11 @@
 import java.util.ArrayList;
 
 public class Gerente extends Usuario{
-
+	
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
@@ -38,4 +42,5 @@ public class Gerente extends Usuario{
 	public void ajustaDados(Cliente cliente, int conta, int tipo, double newLimite, double newTaxa) {
 		//dadastra/edita os limites de retiradas negativas e taxa de juros da poupança
 	}
+
 }
