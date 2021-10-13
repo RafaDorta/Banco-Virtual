@@ -2,8 +2,16 @@ import javax.swing.JOptionPane;
 
 public abstract class Usuario {
 	
+	protected String nome;
 	protected String login;
 	protected String senha;
+	
+	public String getNome() {
+		return nome;
+	}
+	
+	public abstract void setNome(String nome);
+
 	
 	public String getLogin() {
 		return login;
