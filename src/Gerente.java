@@ -14,13 +14,15 @@ public class Gerente extends Usuario{
 		this.login = login;
 	}
 	
-	public void verificaClienteConta(ArrayList<Cliente> clientes) {
+	public String verificaNomeCliente(ArrayList<Cliente> clientes) {
+		String Nomes = "";
 		for(Cliente c : clientes) {
-			if(this.getLogin().equals(c.getGerente())) {
-				System.out.println(c.getLogin());
-				c.printContas();
+			if(this.getNome().equals(c.getGerente())) {
+				Nomes += c.printContas();
+				
 			}
 		}
+		return Nomes;
 	}
 	
 	public void verificaInfosConta() {

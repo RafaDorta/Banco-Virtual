@@ -95,9 +95,19 @@ public class Cliente extends Usuario {
 		}
 	}
 	
-	public void printContas() {
+	public String printContas() {
+		String contas2="";
+		
 		for(Contas c : contas) {
-			System.out.println(c.getConta());
+			String pontos="";
+			for(int i =0;i<22 - this.getNome().length();i++) {
+			pontos += "_";
+			}
+			
+			contas2 += this.getNome() + pontos + c.getConta()+"\r\n";
+					
+			
 		}
+		return contas2;
 	}
 }

@@ -75,8 +75,8 @@ public class TelaInicial {
 		btnEntrar.addActionListener(new ActionListener() {
 			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
-				Menu m = new Menu();
-				if(m.checkLogin(textLogin.getText(),new String(passwordField.getText()),1)) {
+				
+				if(Menu.checkLogin(textLogin.getText(),new String(passwordField.getText()),1)) {
 					JOptionPane.showMessageDialog(null, "Bem Vindo!");
 					frame.setVisible(false);
 					TelaCliente.main(null);

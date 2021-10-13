@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import java.awt.Color;
+
 
 public class TelaGerente {
 
@@ -40,13 +40,12 @@ public class TelaGerente {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.getContentPane().setBackground(Color.LIGHT_GRAY);
 		frame.setBounds(100, 100, 477, 359);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JButton btnVoltar = new JButton("<-- SAIR");
-		btnVoltar .addActionListener(new ActionListener() {
+		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 					frame.setVisible(false);
 					PrimeiraTela.main(null);
@@ -58,7 +57,7 @@ public class TelaGerente {
 		
 		JLabel lblNewLabel = new JLabel("Bem Vindo");
 		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblNewLabel.setBounds(163, 11, 79, 14);
+		lblNewLabel.setBounds(132, 21, 79, 14);
 		frame.getContentPane().add(lblNewLabel);
 		
 		JButton btnVerificarClientes = new JButton("Verificar Clientes");
@@ -69,7 +68,7 @@ public class TelaGerente {
 					TelaVerificarContas.main(null);
 			}
 		});
-		btnVerificarClientes.setBounds(132, 74, 203, 23);
+		btnVerificarClientes.setBounds(132, 58, 203, 23);
 		frame.getContentPane().add(btnVerificarClientes);
 		
 		JButton btnVerificarConta = new JButton("Verificar Conta");
@@ -83,12 +82,12 @@ public class TelaGerente {
 				
 			}
 		});
-		btnVerificarConta.setBounds(132, 108, 203, 23);
+		btnVerificarConta.setBounds(132, 92, 203, 23);
 		frame.getContentPane().add(btnVerificarConta);
 		
 		JButton btnAplicarDinheiro = new JButton("Aplicar Dinheiro");
 		btnAplicarDinheiro.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		btnAplicarDinheiro.setBounds(132, 142, 203, 23);
+		btnAplicarDinheiro.setBounds(132, 126, 203, 23);
 		btnAplicarDinheiro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
@@ -99,7 +98,7 @@ public class TelaGerente {
 		
 		JButton btnFazerTransferencia = new JButton("Fazer Transferencia");
 		btnFazerTransferencia.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		btnFazerTransferencia.setBounds(132, 176, 203, 23);
+		btnFazerTransferencia.setBounds(132, 160, 203, 23);
 		btnFazerTransferencia.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 					frame.setVisible(false);
@@ -110,7 +109,7 @@ public class TelaGerente {
 		
 		JButton btnFazerRetirada = new JButton("Fazer Retirada");
 		btnFazerRetirada.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		btnFazerRetirada.setBounds(132, 210, 203, 23);
+		btnFazerRetirada.setBounds(132, 194, 203, 23);
 		btnFazerRetirada.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 					frame.setVisible(false);
@@ -130,10 +129,16 @@ public class TelaGerente {
 		});
 		frame.getContentPane().add(btnAlterarSenha);
 		
-		JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setBounds(364, 27, 46, 14);
-		frame.getContentPane().add(lblNewLabel_1);
+		JButton btnNewButton = new JButton("Criar Nova Conta");
+		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		btnNewButton.setBounds(132, 228, 203, 23);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+					frame.setVisible(false);
+					TelaCriarUsuario.main(null);
+			}
+		});
+		frame.getContentPane().add(btnNewButton);
 		
 	}
-
 }

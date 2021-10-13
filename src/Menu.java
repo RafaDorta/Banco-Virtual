@@ -6,12 +6,10 @@ public class Menu {
 	private static ArrayList<Gerente> gerentes = new ArrayList<Gerente>();
 	private static Cliente clienteAtual;
 	private static Gerente gerenteAtual;
+	public static int nmrContas = 1000;
 	
-	public boolean checkLogin(String login, String senha, int flag) {
-		Cliente cli = new Cliente();
-		cli.setLogin("aaa");
-		cli.setSenha("123");
-		clientes.add(cli);
+	public static boolean checkLogin(String login, String senha, int flag) {
+		
 				
 		if(flag==1) {
 			for (Cliente c : clientes) {
@@ -32,18 +30,25 @@ public class Menu {
 		return false;
 	}
 	
-	public static void criaUsuario(String login, String senha,int flag) {
+	public static int retornaNmrConta() {
+		return nmrContas -1;
+	}
+	
+	
+	public static void criaUsuario(String login, String senha, String nome, int flag) {
 		if(flag==1) { //criar cliente
 			Cliente newCliente = new Cliente();
 			newCliente.setLogin(login);
 			newCliente.setSenha(senha);
-			newCliente.setGerente(gerenteAtual.getLogin());
+			newCliente.setNome(nome);
+			newCliente.setGerente(gerenteAtual.getNome());
 			clientes.add(newCliente);
 			
 		} else { //criar gerente
 			Gerente newGerente = new Gerente();
 			newGerente.setLogin(login);
 			newGerente.setSenha(senha);
+			newGerente.setNome(nome);
 			gerentes.add(newGerente);
 		}
 	}
@@ -52,7 +57,8 @@ public class Menu {
 		switch(acao)
 		{
 			case 1 :
-				clienteAtual.abrirConta(1111, tipoConta);
+				clienteAtual.abrirConta(nmrContas, tipoConta);
+				nmrContas++;
 				break;
 			case 2 :
 				clienteAtual.aplicaDinheiro(conta, valor);
@@ -73,7 +79,7 @@ public class Menu {
 		switch(acao)
 		{
 			case 1 :
-				gerenteAtual.verificaClienteConta(clientes);
+				///gerenteAtual.verificaClienteConta(clientes);
 				break;
 			case 2 :
 				gerenteAtual.verificaInfosConta();
@@ -93,6 +99,13 @@ public class Menu {
 		}
 	}
 	
+	
+	public static String verificaClienteContas() {
+		
+		
+		return gerenteAtual.verificaNomeCliente(clientes);
+	}
+	
 	public static void alteraSenha(String senhaAntiga,String newSenha,int flag) {
 		if(flag==1) {
 			clienteAtual.alteraSenha(senhaAntiga,newSenha);
@@ -105,8 +118,22 @@ public class Menu {
 		
 		Gerente admin = new Gerente();
 		admin.setLogin("admin");
-		admin.setSenha("senha");
+		admin.setSenha("admin");
+		admin.setNome("Dani");
 		gerentes.add(admin);
+		Cliente cli = new Cliente();
+		cli.setLogin("1234");
+		cli.setSenha("0000");
+		cli.setNome("Julia");
+		cli.setGerente("Dani");
+		clientes.add(cli);
+		
+		Cliente cl = new Cliente();
+		cl.setLogin("2256");
+		cl.setSenha("0000");
+		cl.setNome("Rafael");
+		cl.setGerente("Dani");
+		clientes.add(cl);
 		
 		PrimeiraTela.main(args);
 

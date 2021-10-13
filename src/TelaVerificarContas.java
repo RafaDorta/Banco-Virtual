@@ -10,6 +10,7 @@ import javax.swing.JTextArea;
 import javax.swing.JList;
 import javax.swing.JComboBox;
 import javax.swing.JRadioButton;
+import javax.swing.JScrollBar;
 
 public class TelaVerificarContas {
 
@@ -60,21 +61,19 @@ public class TelaVerificarContas {
 		
 		JLabel lblNewLabel = new JLabel("N\u00B0 da Conta");
 		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblNewLabel.setBounds(303, 52, 88, 14);
+		lblNewLabel.setBounds(250, 52, 88, 14);
 		frame.getContentPane().add(lblNewLabel);
 		
 		JLabel lblNome = new JLabel("Nome");
 		lblNome.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblNome.setBounds(69, 52, 88, 14);
+		lblNome.setBounds(114, 52, 88, 14);
 		frame.getContentPane().add(lblNome);
 		
-		JTextArea textArea = new JTextArea();
-		textArea.setBounds(32, 78, 114, 198);
-		frame.getContentPane().add(textArea);
-		
-		JList list = new JList();
-		list.setBounds(279, 77, 126, 143);
-		frame.getContentPane().add(list);
+		JTextArea txtrRafaelJulia = new JTextArea();
+		txtrRafaelJulia.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		txtrRafaelJulia.setText(Menu.verificaClienteContas());
+		txtrRafaelJulia.setBounds(114, 77, 214, 198);
+		frame.getContentPane().add(txtrRafaelJulia);
 		
 	}
 }
