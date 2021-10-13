@@ -11,12 +11,13 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JPasswordField;
 
 public class TelaInicial {
 
 	private JFrame frame;
 	private JTextField textLogin;
-	private JTextField textSenha;
+	private JPasswordField passwordField;
 
 	/**
 	 * Launch the application.
@@ -65,11 +66,6 @@ public class TelaInicial {
 		lblSenha.setBounds(128, 180, 76, 31);
 		frame.getContentPane().add(lblSenha);
 		
-		textSenha = new JTextField();
-		textSenha.setColumns(10);
-		textSenha.setBounds(196, 186, 138, 20);
-		frame.getContentPane().add(textSenha);
-		
 		JLabel lblNewLabel_1 = new JLabel("BEM-VINDO A CENTRAL DO BANCO JURA");
 		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 16));
 		lblNewLabel_1.setBounds(67, 47, 332, 46);
@@ -77,13 +73,13 @@ public class TelaInicial {
 		
 		JButton btnEntrar = new JButton("ENTRAR");
 		btnEntrar.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
 				Menu m = new Menu();
-				if(m.checkLogin(textLogin.getText(),new String(textSenha.getText()))) {
+				if(m.checkLogin(textLogin.getText(),new String(passwordField.getText()),1)) {
 					JOptionPane.showMessageDialog(null, "Bem Vindo!");
-					TelaCliente c = new TelaCliente();
 					frame.setVisible(false);
-					c.main(null);
+					TelaCliente.main(null);
 				}else {
 					JOptionPane.showMessageDialog(null, "Dados Invalidos!","BANCO JURA",JOptionPane.ERROR_MESSAGE);
 				}
@@ -99,14 +95,17 @@ public class TelaInicial {
 		JButton btnVoltar = new JButton("<-- VOLTAR");
 		btnVoltar .addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
-					PrimeiraTela c = new PrimeiraTela();
 					frame.setVisible(false);
-					c.main(null);
+					PrimeiraTela.main(null);
 			}
 		});
 		btnVoltar.setFont(new Font("Century", Font.PLAIN, 8));
 		btnVoltar.setBounds(10, 11, 79, 24);
 		frame.getContentPane().add(btnVoltar);	
+		
+		passwordField = new JPasswordField();
+		passwordField.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		passwordField.setBounds(190, 186, 138, 20);
+		frame.getContentPane().add(passwordField);
 	}
 }

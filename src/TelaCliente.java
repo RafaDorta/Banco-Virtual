@@ -1,14 +1,9 @@
-import java.awt.Color;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
 
 public class TelaCliente {
@@ -58,13 +53,8 @@ public class TelaCliente {
 		btnAplicar.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		btnAplicar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
-					TelaAplicaRetira c = new TelaAplicaRetira(0);
 					frame.setVisible(false);
-					c.main(null,0);
-					
-				
-				
+					TelaAplicaRetira.main(null,0);
 			}
 		});
 		btnAplicar.setBounds(132, 108, 203, 23);
@@ -74,12 +64,8 @@ public class TelaCliente {
 		btnRetirar.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		btnRetirar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
-					TelaAplicaRetira c = new TelaAplicaRetira(1);
 					frame.setVisible(false);
-					c.main(null, 1);
-				
-				
+					TelaAplicaRetira.main(null, 1);
 			}
 		});
 		btnRetirar.setBounds(132, 141, 203, 23);
@@ -88,12 +74,8 @@ public class TelaCliente {
 		JButton btnVoltar = new JButton("<-- SAIR");
 		btnVoltar .addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
-					TelaInicial c = new TelaInicial();
 					frame.setVisible(false);
-					c.main(null);
-				
-				
+					TelaInicial.main(null);	
 			}
 		});
 		btnVoltar.setFont(new Font("Century", Font.PLAIN, 8));
@@ -105,11 +87,8 @@ public class TelaCliente {
 		btnVerificarE.setBounds(132, 208, 203, 23);
 		btnVerificarE.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
-				TelaVerificaConta c = new TelaVerificaConta(0);
 					frame.setVisible(false);
-					c.main(null,0);
-				
+					TelaVerificaConta.main(null,0);
 			}
 		});
 		frame.getContentPane().add(btnVerificarE);
@@ -119,10 +98,8 @@ public class TelaCliente {
 		btnVerificarS.setBounds(132, 175, 203, 23);
 		btnVerificarS.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
-				TelaVerificaConta c = new TelaVerificaConta(1);
 					frame.setVisible(false);
-					c.main(null,1);
+					TelaVerificaConta.main(null,1);
 			}
 		});
 		frame.getContentPane().add(btnVerificarS);
@@ -132,11 +109,8 @@ public class TelaCliente {
 		btnAlterarSenha.setBounds(132, 260, 203, 23);
 		btnAlterarSenha.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
-				TelaAlterarSenha c = new TelaAlterarSenha(0);
 					frame.setVisible(false);
-					
-					c.main(null,0);
+					TelaAlterarSenha.main(null,0);
 			}
 		});
 		frame.getContentPane().add(btnAlterarSenha);
@@ -150,11 +124,8 @@ public class TelaCliente {
 		btnAbrirUmaConta.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		btnAbrirUmaConta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
-				TelaCriarConta c = new TelaCriarConta();
 					frame.setVisible(false);
-					
-					c.main(null);
+					TelaCriarConta.main(null);
 			}
 		});
 		btnAbrirUmaConta.setBounds(132, 74, 203, 23);

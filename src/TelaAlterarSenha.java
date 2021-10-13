@@ -53,13 +53,11 @@ public class TelaAlterarSenha {
 						
 							if(tipo == 0)
 							{
-								TelaCliente c = new TelaCliente();
 								frame.setVisible(false);
-								c.main(null);
+								TelaCliente.main(null);
 							}else {
-								TelaGerente c = new TelaGerente();
 								frame.setVisible(false);
-								c.main(null);
+								TelaGerente.main(null);
 							}
 							
 						
@@ -101,18 +99,13 @@ public class TelaAlterarSenha {
 					if(tipo == 0)
 					{
 						JOptionPane.showMessageDialog(null, "Senha Alterada com Sucesso!");
-						TelaCliente c = new TelaCliente();
 						frame.setVisible(false);
-						c.main(null);
+						TelaCliente.main(null);
 					}else {
 						JOptionPane.showMessageDialog(null, "Senha Alterada com Sucesso!");
-						TelaGerente c = new TelaGerente();
 						frame.setVisible(false);
-						c.main(null);
+						TelaGerente.main(null);
 					}
-					
-				
-				
 			}
 		});
 		

@@ -88,28 +88,21 @@ public class TelaAplicaRetira {
 					if(tipo == 0)
 					{
 						JOptionPane.showMessageDialog(null, "Dinheiro Adicionado a Conta!");
-						TelaCliente c = new TelaCliente();
 						frame.setVisible(false);
-						c.main(null);
+						TelaCliente.main(null);
 					}else if(tipo==1) {
 						JOptionPane.showMessageDialog(null, "Dinheiro Retirado da Conta!");
-						TelaCliente c = new TelaCliente();
 						frame.setVisible(false);
-						c.main(null);
+						TelaCliente.main(null);
 					}else if(tipo==2) {
 						JOptionPane.showMessageDialog(null, "Dinheiro Aplicado na Conta!");
-						TelaGerente c = new TelaGerente();
 						frame.setVisible(false);
-						c.main(null);
+						TelaGerente.main(null);
 					}else {
 						JOptionPane.showMessageDialog(null, "Dinheiro Retirado da Conta!");
-						TelaGerente c = new TelaGerente();
 						frame.setVisible(false);
-						c.main(null);
+						TelaGerente.main(null);
 					}
-					
-				
-				
 			}
 		});
 		btnEfetuar.setBounds(180, 213, 130, 23);
@@ -119,32 +112,19 @@ public class TelaAplicaRetira {
 		btnVoltar .addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				if(tipo == 0)
-				{
-					
-					TelaCliente c = new TelaCliente();
+				if(tipo == 0) {
 					frame.setVisible(false);
-					c.main(null);
+					TelaCliente.main(null);
 				}else if(tipo==1) {
-				
-					TelaCliente c = new TelaCliente();
 					frame.setVisible(false);
-					c.main(null);
+					TelaCliente.main(null);
 				}else if(tipo==2) {
-					
-					TelaGerente c = new TelaGerente();
 					frame.setVisible(false);
-					c.main(null);
+					TelaGerente.main(null);
 				}else {
-					
-					TelaGerente c = new TelaGerente();
 					frame.setVisible(false);
-					c.main(null);
+					TelaGerente.main(null);
 				}
-			
-					
-				
-				
 			}
 		});
 		btnVoltar.setFont(new Font("Century", Font.PLAIN, 7));
