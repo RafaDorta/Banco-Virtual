@@ -99,32 +99,23 @@ public class TelaCriarUsuario {
 		btnNewButton.setBounds(198, 249, 89, 23);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-					if(flag == -1) {
-						JOptionPane.showMessageDialog(null, "Selecione um tipo!","BANCO JURA",JOptionPane.WARNING_MESSAGE);
-					}else {
-					
-						
-						if(Menu.criaUsuario(textLogin.getText(),textSenha.getText(),textNome.getText(),flag)) {
+				if(flag == -1) {
+					JOptionPane.showMessageDialog(null, "Selecione um tipo!","BANCO JURA",JOptionPane.WARNING_MESSAGE);
+				}else {
+					if(Menu.criaUsuario(textLogin.getText(),textSenha.getText(),textNome.getText(),flag)) {
 						if(flag == 1) {
 							JOptionPane.showMessageDialog(null, "Cliente criado com Sucesso!!\n  Bem-Vindo ao Banco JURA!");	
-						}else JOptionPane.showMessageDialog(null, "Gerente criado com Sucesso!!\n  Bem-Vindo ao Banco JURA!");	
-						
-						
-						
+						}else {
+							JOptionPane.showMessageDialog(null, "Gerente criado com Sucesso!!\n  Bem-Vindo ao Banco JURA!");
+						}
+								
 						frame.setVisible(false);
 						TelaGerente.main(null);
 						
 					}else {
-						
 						JOptionPane.showMessageDialog(null, "Login ja esta sendo utilizado!","BANCO JURA",JOptionPane.WARNING_MESSAGE);
 					}
-						
-					}
-				
-				
-				
-					
-					
+				}	
 			}
 		});
 		frame.getContentPane().add(btnNewButton);
@@ -149,7 +140,6 @@ public class TelaCriarUsuario {
 		});
 		frame.getContentPane().add(rdbtnGerente);
 		
-		
 		rdbtnCliente.setBounds(237, 66, 79, 23);
 		rdbtnCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -157,11 +147,10 @@ public class TelaCriarUsuario {
 				if(i%2 == 1) {
 					rdbtnGerente.setEnabled(false);
 					flag =1;
-				}else { rdbtnGerente.setEnabled(true);
-				flag =-1;
+				}else { 
+					rdbtnGerente.setEnabled(true);
+					flag =-1;
 				}
-				
-				
 			}
 		});
 		frame.getContentPane().add(rdbtnCliente);

@@ -12,7 +12,6 @@ public abstract class Usuario {
 	
 	public abstract void setNome(String nome);
 
-	
 	public String getLogin() {
 		return login;
 	}
@@ -26,12 +25,11 @@ public abstract class Usuario {
 	public abstract void setSenha(String senha);
 	
 	public void alteraSenha(String senhaAntiga, String senhaNova) {
-        if(senhaAntiga==senha)
-        {
+        if(senhaAntiga==senha) {
             senha=senhaNova;
             JOptionPane.showMessageDialog(null, "Senha alterada com sucesso!");
-        }
-        else
+        } else {
         	JOptionPane.showMessageDialog(null, "Dados inválidos","BANCO JURA",JOptionPane.ERROR_MESSAGE);
+        }
     }
 }

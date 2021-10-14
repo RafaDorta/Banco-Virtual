@@ -64,7 +64,6 @@ public class TelaCriarConta {
 		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
 				Menu.acoesCliente(1, "Poupança", 0, 0);
 				JOptionPane.showMessageDialog(null, "Conta criada com Sucesso!!\n  Numero da Conta: " + Menu.retornaNmrConta());
 				frame.setVisible(false);
@@ -79,7 +78,6 @@ public class TelaCriarConta {
 		btnCorrente.setBounds(161, 144, 134, 23);
 		btnCorrente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
 				Menu.acoesCliente(1, "Corrente", 0, 0);
 				JOptionPane.showMessageDialog(null, "Conta criada com Sucesso!!\n  Numero da Conta: " + Menu.retornaNmrConta());
 				frame.setVisible(false);
@@ -92,7 +90,6 @@ public class TelaCriarConta {
 		btnEspecial.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		btnEspecial.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
 				Menu.acoesCliente(1, "Especial", 0, 0);
 				JOptionPane.showMessageDialog(null, "Conta criada com Sucesso!!\n  Numero da Conta: " + Menu.retornaNmrConta());
 				frame.setVisible(false);

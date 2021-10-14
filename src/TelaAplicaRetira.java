@@ -17,35 +17,26 @@ public class TelaAplicaRetira {
 	private JTextField textConta;
 	private JTextField textValor;
 
-	
-	
-
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args, int tipo2) {
-		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					
 					TelaAplicaRetira window = new TelaAplicaRetira(tipo2);
 					window.frame.setVisible(true);
-					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		});
 	}
-	
-	
 
 	/**
 	 * Create the application.
 	 */
 	public TelaAplicaRetira(int tipo) {
-		
 		initialize(tipo);
 	}
 
@@ -62,8 +53,6 @@ public class TelaAplicaRetira {
 		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		lblNewLabel.setBounds(113, 94, 130, 24);
 		frame.getContentPane().add(lblNewLabel);
-		
-		
 		
 		textConta = new JTextField();
 		textConta.setBounds(191, 98, 130, 20);
@@ -84,26 +73,24 @@ public class TelaAplicaRetira {
 		btnEfetuar.setFont(new Font("Times New Roman", Font.BOLD, 13));
 		btnEfetuar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-					if(tipo == 0)
-					{
-						Menu.acoesCliente(2, null, Integer.parseInt(textConta.getText()), Double.parseDouble(textValor.getText()));
-						
-						frame.setVisible(false);
-						TelaCliente.main(null);
-					}else if(tipo==1) {
-						JOptionPane.showMessageDialog(null, "Dinheiro Retirado da Conta!");
-						frame.setVisible(false);
-						TelaCliente.main(null);
-					}else if(tipo==2) {
-						JOptionPane.showMessageDialog(null, "Dinheiro Aplicado na Conta!");
-						frame.setVisible(false);
-						TelaGerente.main(null);
-					}else {
-						JOptionPane.showMessageDialog(null, "Dinheiro Retirado da Conta!");
-						frame.setVisible(false);
-						TelaGerente.main(null);
-					}
+				if(tipo == 0)
+				{
+					Menu.acoesCliente(2, null, Integer.parseInt(textConta.getText()), Double.parseDouble(textValor.getText()));
+					frame.setVisible(false);
+					TelaCliente.main(null);
+				}else if(tipo==1) {
+					JOptionPane.showMessageDialog(null, "Dinheiro Retirado da Conta!");
+					frame.setVisible(false);
+					TelaCliente.main(null);
+				}else if(tipo==2) {
+					JOptionPane.showMessageDialog(null, "Dinheiro Aplicado na Conta!");
+					frame.setVisible(false);
+					TelaGerente.main(null);
+				}else {
+					JOptionPane.showMessageDialog(null, "Dinheiro Retirado da Conta!");
+					frame.setVisible(false);
+					TelaGerente.main(null);
+				}
 			}
 		});
 		btnEfetuar.setBounds(180, 213, 130, 23);
@@ -112,7 +99,6 @@ public class TelaAplicaRetira {
 		JButton btnVoltar = new JButton("<-- VOLTAR");
 		btnVoltar .addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
 				if(tipo == 0) {
 					frame.setVisible(false);
 					TelaCliente.main(null);
@@ -132,5 +118,4 @@ public class TelaAplicaRetira {
 		btnVoltar.setBounds(10, 11, 79, 24);
 		frame.getContentPane().add(btnVoltar);
 	}
-
 }

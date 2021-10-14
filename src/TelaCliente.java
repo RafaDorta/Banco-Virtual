@@ -25,9 +25,7 @@ public class TelaCliente {
 			}
 		});
 	}
-	
-	
-	
+		
 	/**
 	 * Create the application.
 	 */
@@ -44,17 +42,12 @@ public class TelaCliente {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		//JLabel lblNewLabel = new JLabel("Bem Vindo " + c1.getLogin());
-		//lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		//lblNewLabel.setBounds(163, 11, 165, 14);
-		//frame.getContentPane().add(lblNewLabel);
-		
 		JButton btnAplicar = new JButton("Aplicar na Conta");
 		btnAplicar.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		btnAplicar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-					frame.setVisible(false);
-					TelaAplicaRetira.main(null,0);
+				frame.setVisible(false);
+				TelaAplicaRetira.main(null,0);
 			}
 		});
 		btnAplicar.setBounds(132, 108, 203, 23);
@@ -64,8 +57,8 @@ public class TelaCliente {
 		btnRetirar.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		btnRetirar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-					frame.setVisible(false);
-					TelaAplicaRetira.main(null, 1);
+				frame.setVisible(false);
+				TelaAplicaRetira.main(null, 1);
 			}
 		});
 		btnRetirar.setBounds(132, 141, 203, 23);
@@ -74,8 +67,8 @@ public class TelaCliente {
 		JButton btnVoltar = new JButton("<-- SAIR");
 		btnVoltar .addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-					frame.setVisible(false);
-					TelaInicial.main(null);	
+				frame.setVisible(false);
+				TelaInicial.main(null);	
 			}
 		});
 		btnVoltar.setFont(new Font("Century", Font.PLAIN, 8));
@@ -87,8 +80,8 @@ public class TelaCliente {
 		btnVerificarE.setBounds(132, 208, 203, 23);
 		btnVerificarE.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-					frame.setVisible(false);
-					TelaVerificaConta.main(null,0);
+				frame.setVisible(false);
+				TelaVerificaConta.main(null,0);
 			}
 		});
 		frame.getContentPane().add(btnVerificarE);
@@ -98,8 +91,8 @@ public class TelaCliente {
 		btnVerificarS.setBounds(132, 175, 203, 23);
 		btnVerificarS.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-					frame.setVisible(false);
-					TelaVerificaConta.main(null,1);
+				frame.setVisible(false);
+				TelaVerificaConta.main(null,1);
 			}
 		});
 		frame.getContentPane().add(btnVerificarS);
@@ -109,8 +102,8 @@ public class TelaCliente {
 		btnAlterarSenha.setBounds(132, 260, 203, 23);
 		btnAlterarSenha.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-					frame.setVisible(false);
-					TelaAlterarSenha.main(null,0);
+				frame.setVisible(false);
+				TelaAlterarSenha.main(null,0);
 			}
 		});
 		frame.getContentPane().add(btnAlterarSenha);
@@ -124,8 +117,8 @@ public class TelaCliente {
 		btnAbrirUmaConta.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		btnAbrirUmaConta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-					frame.setVisible(false);
-					TelaCriarConta.main(null);
+				frame.setVisible(false);
+				TelaCriarConta.main(null);
 			}
 		});
 		btnAbrirUmaConta.setBounds(132, 74, 203, 23);

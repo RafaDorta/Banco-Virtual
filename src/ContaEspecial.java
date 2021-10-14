@@ -3,13 +3,9 @@ public class ContaEspecial extends Contas{
 	
 	private double limite;
 	
-	public ContaEspecial()
-	{
+	public ContaEspecial() {
 		setTipo("Especial");
-		
-
 	}
-	
 	
 	public double getLimite() {
 		return limite;
@@ -19,16 +15,14 @@ public class ContaEspecial extends Contas{
 		this.limite = limite;
 	}
 	
-	
 	@Override
 	public void sacar(double X) {
 		if(getSaldo() - X < getLimite()) {
-			
+			//insuficiente
 		}
 		else {
 			setSaldo(getSaldo() - X);	
 			extrato.add("Saque de " + X);
 		}
-		
 	}
 }

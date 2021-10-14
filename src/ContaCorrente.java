@@ -1,11 +1,8 @@
 
 public class ContaCorrente extends Contas {
 		
-	public ContaCorrente()
-	{
-		
+	public ContaCorrente() {
 		setTipo("Corrente");
-		
 	}
 
 	@Override

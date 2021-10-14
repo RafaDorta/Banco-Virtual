@@ -51,8 +51,8 @@ public class TelaTransferencia {
 		JButton btnVoltar = new JButton("<-- VOLTAR");
 		btnVoltar .addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-					frame.setVisible(false);
-					TelaGerente.main(null);
+				frame.setVisible(false);
+				TelaGerente.main(null);
 			}
 		});
 		btnVoltar.setFont(new Font("Century", Font.PLAIN, 8));
@@ -94,5 +94,4 @@ public class TelaTransferencia {
 		btnNewButton.setBounds(167, 262, 130, 23);
 		frame.getContentPane().add(btnNewButton);
 	}
-
 }

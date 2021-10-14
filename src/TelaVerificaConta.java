@@ -63,14 +63,12 @@ public class TelaVerificaConta {
 					frame.setVisible(false);
 					TelaExtrato.main(null);
 				}else {
-					
 					if(Menu.acoesCliente(4,null, Integer.parseInt(textField.getText()), 0)) {
-					frame.setVisible(false);
-					TelaCliente.main(null);
-					
+						frame.setVisible(false);
+						TelaCliente.main(null);
+					}
 				}
 			}
-		}
 		});
 		btnEfetuar.setFont(new Font("Times New Roman", Font.BOLD, 13));
 		btnEfetuar.setBounds(181, 178, 105, 23);
@@ -80,8 +78,8 @@ public class TelaVerificaConta {
 		btnVoltar.setFont(new Font("Century", Font.PLAIN, 7));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-					frame.setVisible(false);
-					TelaCliente.main(null);
+				frame.setVisible(false);
+				TelaCliente.main(null);
 			}
 		});
 		btnVoltar.setBounds(10, 11, 79, 24);

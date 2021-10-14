@@ -47,8 +47,8 @@ public class TelaGerente {
 		JButton btnVoltar = new JButton("<-- SAIR");
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-					frame.setVisible(false);
-					PrimeiraTela.main(null);
+				frame.setVisible(false);
+				PrimeiraTela.main(null);
 			}
 		});
 		btnVoltar.setFont(new Font("Century", Font.PLAIN, 8));
@@ -64,8 +64,8 @@ public class TelaGerente {
 		btnVerificarClientes.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		btnVerificarClientes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-					frame.setVisible(false);
-					TelaVerificarContas.main(null);
+				frame.setVisible(false);
+				TelaVerificarContas.main(null);
 			}
 		});
 		btnVerificarClientes.setBounds(132, 58, 203, 23);
@@ -101,8 +101,8 @@ public class TelaGerente {
 		btnFazerTransferencia.setBounds(132, 160, 203, 23);
 		btnFazerTransferencia.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-					frame.setVisible(false);
-					TelaTransferencia.main(null);			
+				frame.setVisible(false);
+				TelaTransferencia.main(null);			
 			}
 		});
 		frame.getContentPane().add(btnFazerTransferencia);
@@ -112,8 +112,8 @@ public class TelaGerente {
 		btnFazerRetirada.setBounds(132, 194, 203, 23);
 		btnFazerRetirada.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-					frame.setVisible(false);
-					TelaAplicaRetira.main(null,3);
+				frame.setVisible(false);
+				TelaAplicaRetira.main(null,3);
 			}
 		});
 		frame.getContentPane().add(btnFazerRetirada);
@@ -123,8 +123,8 @@ public class TelaGerente {
 		btnAlterarSenha.setBounds(132, 262, 203, 23);
 		btnAlterarSenha.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-					frame.setVisible(false);
-					TelaAlterarSenha.main(null,1);
+				frame.setVisible(false);
+				TelaAlterarSenha.main(null,1);
 			}
 		});
 		frame.getContentPane().add(btnAlterarSenha);
@@ -134,11 +134,10 @@ public class TelaGerente {
 		btnNewButton.setBounds(132, 228, 203, 23);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-					frame.setVisible(false);
-					TelaCriarUsuario.main(null);
+				frame.setVisible(false);
+				TelaCriarUsuario.main(null);
 			}
 		});
 		frame.getContentPane().add(btnNewButton);
-		
 	}
 }

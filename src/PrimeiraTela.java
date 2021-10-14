@@ -16,7 +16,6 @@ public class PrimeiraTela {
 	ImageIcon logo = new ImageIcon(getClass().getResource("Jura.png"));
 	ImageIcon fundo = new ImageIcon(getClass().getResource("Fundo5.png"));
 
-
 	/**
 	 * Launch the application.
 	 */
@@ -29,10 +28,8 @@ public class PrimeiraTela {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-				
 			}
 		});
-		
 	}
 
 	/**
@@ -81,17 +78,12 @@ public class PrimeiraTela {
 				TelaInicial.main(null);
 			}
 		});
-		
 		btnCliente.setBounds(155, 248, 153, 23);
 		frame.getContentPane().add(btnCliente);
-    
-    
-    
-    
-    JLabel lblNewLabel_4 = new JLabel("New label");
-    lblNewLabel_4.setBounds(0, 0, 461, 320);
-    frame.getContentPane().add(lblNewLabel_4);
-    lblNewLabel_4.setIcon(fundo);
-    
+
+		JLabel lblNewLabel_4 = new JLabel("New label");
+		lblNewLabel_4.setBounds(0, 0, 461, 320);
+		frame.getContentPane().add(lblNewLabel_4);
+		lblNewLabel_4.setIcon(fundo);
 	}
 }

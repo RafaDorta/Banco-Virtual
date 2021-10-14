@@ -50,23 +50,16 @@ public class TelaAlterarSenha {
 		JButton btnVoltar = new JButton("<-- VOLTAR");
 		btnVoltar .addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-						
-							if(tipo == 0)
-							{
-								frame.setVisible(false);
-								TelaCliente.main(null);
-							}else {
-								frame.setVisible(false);
-								TelaGerente.main(null);
-							}
-							
-						
-						
-					}
-				});
-				
-				
-		
+				if(tipo == 0)
+				{
+					frame.setVisible(false);
+					TelaCliente.main(null);
+				}else {
+					frame.setVisible(false);
+					TelaGerente.main(null);
+				}		
+			}
+		});
 		btnVoltar.setFont(new Font("Century", Font.PLAIN, 8));
 		btnVoltar.setBounds(10, 11, 79, 24);
 		frame.getContentPane().add(btnVoltar);
@@ -95,22 +88,19 @@ public class TelaAlterarSenha {
 		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-					if(tipo == 0)
-					{
-						JOptionPane.showMessageDialog(null, "Senha Alterada com Sucesso!");
-						frame.setVisible(false);
-						TelaCliente.main(null);
-					}else {
-						JOptionPane.showMessageDialog(null, "Senha Alterada com Sucesso!");
-						frame.setVisible(false);
-						TelaGerente.main(null);
-					}
+				if(tipo == 0)
+				{
+					JOptionPane.showMessageDialog(null, "Senha Alterada com Sucesso!");
+					frame.setVisible(false);
+					TelaCliente.main(null);
+				}else {
+					JOptionPane.showMessageDialog(null, "Senha Alterada com Sucesso!");
+					frame.setVisible(false);
+					TelaGerente.main(null);
+				}
 			}
 		});
-		
 		btnNewButton.setBounds(174, 235, 115, 23);
 		frame.getContentPane().add(btnNewButton);
 	}
-
 }

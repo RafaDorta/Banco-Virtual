@@ -74,7 +74,6 @@ public class TelaInicial {
 		JButton btnEntrar = new JButton("ENTRAR");
 		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
 				if(Menu.checkLogin(textLogin.getText(),new String(passwordField.getPassword()),1)) {
 					JOptionPane.showMessageDialog(null, "Bem Vindo!");
 					frame.setVisible(false);
@@ -82,20 +81,17 @@ public class TelaInicial {
 				}else {
 					JOptionPane.showMessageDialog(null, "Dados Invalidos!","BANCO JURA",JOptionPane.ERROR_MESSAGE);
 				}
-				
 			}
 		});
 		btnEntrar.setFont(new Font("Times New Roman", Font.PLAIN, 15));
 		btnEntrar.setBounds(196, 248, 99, 23);
 		frame.getContentPane().add(btnEntrar);
-		
-		
-		
+				
 		JButton btnVoltar = new JButton("<-- VOLTAR");
 		btnVoltar .addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-					frame.setVisible(false);
-					PrimeiraTela.main(null);
+				frame.setVisible(false);
+				PrimeiraTela.main(null);
 			}
 		});
 		btnVoltar.setFont(new Font("Century", Font.PLAIN, 8));

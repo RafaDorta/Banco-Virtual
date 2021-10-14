@@ -15,7 +15,6 @@ public abstract class Contas {
 		Tipo = tipo;
 	}
 	
-	
 	public int getConta() {
 		return Conta;
 	}
@@ -32,14 +31,9 @@ public abstract class Contas {
 		Saldo = saldo;
 	}
 	
-	
-	
-	
-	
 	public abstract void sacar(double X);
 	
-	public void depositar(double X)
-	{
+	public void depositar(double X) {
 			Saldo = Saldo + X;
 			extrato.add("Deposito de " + X);
 	}

@@ -3,12 +3,8 @@ public class ContaPoupanca extends Contas{
 
 	private double rendimento;
 	
-	public ContaPoupanca()
-	{
-		
+	public ContaPoupanca() {
 		setTipo("Poupança");
-		
-		
 	}
 	
 	public double getRendimento() {
@@ -19,8 +15,7 @@ public class ContaPoupanca extends Contas{
 		this.rendimento = rendimento;
 	}
 	
-	public void Rende()
-	{
+	public void Rende() {
 		setSaldo(getSaldo()+ (getSaldo()*getRendimento()/100)); 
 		extrato.add("Rendimento de " + (getSaldo() * getRendimento()/ 100));
 	}

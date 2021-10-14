@@ -43,12 +43,11 @@ public class TelaExtrato {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		
 		JButton btnVoltar = new JButton("<-- VOLTAR");
 		btnVoltar .addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-					frame.setVisible(false);
-					TelaCliente.main(null);
+				frame.setVisible(false);
+				TelaCliente.main(null);
 			}
 		});
 		btnVoltar.setFont(new Font("Century", Font.PLAIN, 7));

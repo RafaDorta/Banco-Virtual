@@ -19,7 +19,6 @@ public class Gerente extends Usuario{
 		for(Cliente c : clientes) {
 			if(this.getNome().equals(c.getGerente())) {
 				Nomes += c.printContas();
-				
 			}
 		}
 		return Nomes;
