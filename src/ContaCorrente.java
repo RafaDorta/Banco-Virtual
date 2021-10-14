@@ -3,8 +3,16 @@ public class ContaCorrente extends Contas {
 		
 	public ContaCorrente()
 	{
-		setLimite(0);
+		
 		setTipo("Corrente");
-		setRendimento(0);
+		
+	}
+
+	@Override
+	public void sacar(double X) {
+		// TODO Auto-generated method stub
+		
 	}
 }
+
+

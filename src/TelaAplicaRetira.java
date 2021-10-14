@@ -87,7 +87,8 @@ public class TelaAplicaRetira {
 				
 					if(tipo == 0)
 					{
-						JOptionPane.showMessageDialog(null, "Dinheiro Adicionado a Conta!");
+						Menu.acoesCliente(2, null, Integer.parseInt(textConta.getText()), Double.parseDouble(textValor.getText()));
+						
 						frame.setVisible(false);
 						TelaCliente.main(null);
 					}else if(tipo==1) {

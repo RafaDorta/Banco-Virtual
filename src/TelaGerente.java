@@ -55,9 +55,9 @@ public class TelaGerente {
 		btnVoltar.setBounds(10, 11, 79, 24);
 		frame.getContentPane().add(btnVoltar);
 		
-		JLabel lblNewLabel = new JLabel("Bem Vindo");
+		JLabel lblNewLabel = new JLabel("Bem Vindo, " + Menu.retornaNome(0));
 		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblNewLabel.setBounds(132, 21, 79, 14);
+		lblNewLabel.setBounds(152, 21, 248, 14);
 		frame.getContentPane().add(lblNewLabel);
 		
 		JButton btnVerificarClientes = new JButton("Verificar Clientes");

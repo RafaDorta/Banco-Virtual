@@ -104,7 +104,7 @@ public class TelaCriarUsuario {
 					}else {
 					
 						
-						Menu.criaUsuario(textLogin.getText(),textSenha.getText(),textNome.getText(),flag);
+						if(Menu.criaUsuario(textLogin.getText(),textSenha.getText(),textNome.getText(),flag)) {
 						if(flag == 1) {
 							JOptionPane.showMessageDialog(null, "Cliente criado com Sucesso!!\n  Bem-Vindo ao Banco JURA!");	
 						}else JOptionPane.showMessageDialog(null, "Gerente criado com Sucesso!!\n  Bem-Vindo ao Banco JURA!");	
@@ -113,6 +113,11 @@ public class TelaCriarUsuario {
 						
 						frame.setVisible(false);
 						TelaGerente.main(null);
+						
+					}else {
+						
+						JOptionPane.showMessageDialog(null, "Login ja esta sendo utilizado!","BANCO JURA",JOptionPane.WARNING_MESSAGE);
+					}
 						
 					}
 				

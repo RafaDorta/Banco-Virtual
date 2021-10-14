@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 public class Cliente extends Usuario {
 
 	private String gerente;
@@ -33,59 +35,47 @@ public class Cliente extends Usuario {
 		contas.add(newConta);
 	}
 	
-	public void aplicaDinheiro(int conta, double valor) {
-		int flag=0;
+	public boolean aplicaDinheiro(int conta, double valor) {
+		
 		
 		for (Contas c : contas) {
 		    if(conta == c.getConta()) {
 		    	c.depositar(valor);
-		    	flag = 1;
+		    	return true;
 		    }
 		}
 		
-		if(flag==0) { 
-			//msg de erro (conta não existe)
-		}
-		else {
-			//msg de sucesso
-		}
+		return false;
 	}
 	
-	public void retiraDinheiro(int conta, double valor) {
-		int flag=0;
+	public boolean retiraDinheiro(int conta, double valor) {
+		
 		
 		for (Contas c : contas) {
 		    if(conta == c.getConta()) {
 		    	c.sacar(valor);
-		    	flag = 1;
+		    	return true;
 		    }
 		}
 		
-		if(flag==0) { 
-			//msg de erro (conta não existe)
-		}
-		else {
-			//msg de sucesso
-		}
+		return false;
 	}
 	
-	public void verificaSaldo(int conta) {
-		int flag=0;
+	public boolean verificaSaldo(int conta) {
+		
 		
 		for (Contas c : contas) {
 		    if(conta == c.getConta()) {
-		    	//imprimir saldo
-		    	flag = 1;
+		    	JOptionPane.showMessageDialog(null, "Saldo = R$ " + c.getSaldo());
+		    	return true;
 		    }
 		}
 		
-		if(flag==0) { 
-			//msg de erro (conta não existe)
-		}
-		else {
-			//msg de sucesso
-		}
+	return false;
 	}
+	
+	
+	
 	
 	public void verificaExtrato(int conta) {
 		for(Contas c : contas) {

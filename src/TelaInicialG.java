@@ -69,10 +69,9 @@ public class TelaInicialG {
 		
 		JButton btnEntrar = new JButton("ENTRAR");
 		btnEntrar.addActionListener(new ActionListener() {
-			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
 				
-				if(Menu.checkLogin(textLogin.getText(),new String(passwordField.getText()),0)) {
+				if(Menu.checkLogin(textLogin.getText(),new String(passwordField.getPassword()),0)) {
 					JOptionPane.showMessageDialog(null, "Bem Vindo!");
 					frame.setVisible(false);
 					TelaGerente.main(null);

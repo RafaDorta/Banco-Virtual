@@ -130,5 +130,10 @@ public class TelaCliente {
 		});
 		btnAbrirUmaConta.setBounds(132, 74, 203, 23);
 		frame.getContentPane().add(btnAbrirUmaConta);
+		
+		JLabel lblNewLabel = new JLabel("Bem-Vindo, " + Menu.retornaNome(1));
+		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		lblNewLabel.setBounds(163, 14, 172, 14);
+		frame.getContentPane().add(lblNewLabel);
 	}
 }

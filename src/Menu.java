@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 public class Menu {
 	
 	private static ArrayList<Cliente> clientes = new ArrayList<Cliente>();
@@ -13,14 +15,18 @@ public class Menu {
 				
 		if(flag==1) {
 			for (Cliente c : clientes) {
-			    if(login.equals(c.getLogin())) {
+			    if(login.equals(c.getLogin())&&senha.equals(c.getSenha())) {
+			    	
+				    	System.out.printf("%s, %s", c.getSenha(),senha);
 			    	clienteAtual=c;
 			    	return true;
 			    }
 			}
 		} else {
 			for (Gerente g : gerentes) {
-			    if(login.equals(g.getLogin())) {
+			    if(login.equals(g.getLogin())&& senha.equals(g.getSenha())) {
+			    	
+			    	System.out.printf("%s, %s", g.getSenha(),senha);
 			    	gerenteAtual=g;
 			    	return true;
 			    }
@@ -34,10 +40,29 @@ public class Menu {
 		return nmrContas -1;
 	}
 	
+	///public static double retornaSaldoConta(int conta) {
+	///	return clienteAtual.verificaSaldo(conta);
+	//}
 	
-	public static void criaUsuario(String login, String senha, String nome, int flag) {
+	public static String retornaNome(int flag) {
+		if(flag == 1) {
+		return clienteAtual.getNome();
+		}else {
+			return gerenteAtual.getNome();
+		}
+	}
+	
+	
+	public static boolean criaUsuario(String login, String senha, String nome, int flag) {
 		if(flag==1) { //criar cliente
+			for(Cliente c : clientes) {
+				if(login.equals(c.getLogin())) {
+					return false;
+				}
+			}
+			
 			Cliente newCliente = new Cliente();
+			
 			newCliente.setLogin(login);
 			newCliente.setSenha(senha);
 			newCliente.setNome(nome);
@@ -51,9 +76,11 @@ public class Menu {
 			newGerente.setNome(nome);
 			gerentes.add(newGerente);
 		}
+		
+		return true;
 	}
 	
-	public static void acoesCliente(int acao,String tipoConta,int conta,double valor) {
+	public static boolean acoesCliente(int acao,String tipoConta,int conta,double valor) {
 		switch(acao)
 		{
 			case 1 :
@@ -61,18 +88,34 @@ public class Menu {
 				nmrContas++;
 				break;
 			case 2 :
-				clienteAtual.aplicaDinheiro(conta, valor);
+				
+			if(	clienteAtual.aplicaDinheiro(conta, valor)) {
+				JOptionPane.showMessageDialog(null, "Dinheiro Adicionado a Conta!");
+			}else {
+				JOptionPane.showMessageDialog(null, "Numero da Conta errado!","BANCO JURA",JOptionPane.WARNING_MESSAGE);
+			}
+				
 				break;
 			case 3 :
-				clienteAtual.retiraDinheiro(conta, valor);
+				if(	clienteAtual.retiraDinheiro(conta, valor)) {
+					JOptionPane.showMessageDialog(null, "Dinheiro Retirado da Conta!");
+				}else {
+					JOptionPane.showMessageDialog(null, "Ups, algo deu errado !","BANCO JURA",JOptionPane.WARNING_MESSAGE);
+				}
 				break;
 			case 4 :
-				clienteAtual.verificaSaldo(conta);
+				
+				if(!clienteAtual.verificaSaldo(conta)) {
+					JOptionPane.showMessageDialog(null, "Numero da Conta errado!","BANCO JURA",JOptionPane.WARNING_MESSAGE);
+					return false;
+				}
 				break;
 			case 5 :
 				clienteAtual.verificaExtrato(conta);
 				break;
 		}
+		
+		return true;
 	}
 	
 	public static void acoesGerente(int acao,Cliente cli,int conta,double valor,Cliente cli2,int conta2,int tipoConta,double limite,double taxa) {

@@ -7,12 +7,14 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import java.awt.Color;
 
 
 public class PrimeiraTela {
 	
 	private JFrame frame;
 	ImageIcon logo = new ImageIcon(getClass().getResource("Jura.png"));
+	ImageIcon fundo = new ImageIcon(getClass().getResource("Fundo5.png"));
 
 
 	/**
@@ -45,6 +47,7 @@ public class PrimeiraTela {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.getContentPane().setBackground(Color.LIGHT_GRAY);
 		frame.setBounds(100, 100, 477, 359);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -81,12 +84,14 @@ public class PrimeiraTela {
 		
 		btnCliente.setBounds(155, 248, 153, 23);
 		frame.getContentPane().add(btnCliente);
-		
-		JLabel lblNewLabel_2 = new JLabel("New label");
-
-    lblNewLabel_2.setBounds(191, 11, 80, 80);
-    frame.getContentPane().add(lblNewLabel_2);
-    lblNewLabel_2.setIcon(logo);
+    
+    
+    
+    
+    JLabel lblNewLabel_4 = new JLabel("New label");
+    lblNewLabel_4.setBounds(0, 0, 461, 320);
+    frame.getContentPane().add(lblNewLabel_4);
+    lblNewLabel_4.setIcon(fundo);
+    
 	}
-	
 }

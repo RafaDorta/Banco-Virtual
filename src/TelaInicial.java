@@ -57,7 +57,7 @@ public class TelaInicial {
 		frame.getContentPane().add(lblNewLabel);
 		
 		textLogin = new JTextField();
-		textLogin.setBounds(196, 130, 138, 20);
+		textLogin.setBounds(190, 130, 138, 20);
 		frame.getContentPane().add(textLogin);
 		textLogin.setColumns(10);
 		
@@ -73,10 +73,9 @@ public class TelaInicial {
 		
 		JButton btnEntrar = new JButton("ENTRAR");
 		btnEntrar.addActionListener(new ActionListener() {
-			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
 				
-				if(Menu.checkLogin(textLogin.getText(),new String(passwordField.getText()),1)) {
+				if(Menu.checkLogin(textLogin.getText(),new String(passwordField.getPassword()),1)) {
 					JOptionPane.showMessageDialog(null, "Bem Vindo!");
 					frame.setVisible(false);
 					TelaCliente.main(null);

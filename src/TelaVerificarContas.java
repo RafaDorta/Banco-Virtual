@@ -7,10 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
-import javax.swing.JList;
-import javax.swing.JComboBox;
-import javax.swing.JRadioButton;
-import javax.swing.JScrollBar;
+
 
 public class TelaVerificarContas {
 
