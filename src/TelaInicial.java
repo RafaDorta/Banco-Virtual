@@ -46,6 +46,7 @@ public class TelaInicial {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		
 		frame = new JFrame();
 		frame.setBounds(100, 100, 477, 359);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -75,7 +76,8 @@ public class TelaInicial {
 		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(Menu.checkLogin(textLogin.getText(),new String(passwordField.getPassword()),1)) {
-					JOptionPane.showMessageDialog(null, "Bem Vindo!");
+					
+					JOptionPane.showMessageDialog(null, "Bem Vindo!","BANCO JURA",JOptionPane.INFORMATION_MESSAGE);
 					frame.setVisible(false);
 					TelaCliente.main(null);
 				}else {

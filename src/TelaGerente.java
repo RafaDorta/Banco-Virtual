@@ -143,7 +143,7 @@ public class TelaGerente {
 		btnAjusta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
-				TelaVerificaConta.main(null,2);
+				TelaVerificaConta.main(null,3);
 			}
 		});
 		frame.getContentPane().add(btnAjusta);

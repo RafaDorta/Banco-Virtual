@@ -6,6 +6,9 @@ public abstract class Contas {
 	private double saldo;
 	private String nome;
 	private String tipo;
+	private double limite;
+	private double rendimento;
+	
 	public ArrayList<String> extrato = new ArrayList<String>();
 	
 	public String getTipo() {
@@ -42,6 +45,8 @@ public abstract class Contas {
 	
 	public abstract boolean sacar(double X);
 	
+	
+	
 	public void depositar(double X) {
 			this.saldo += X;
 			extrato.add("Deposito de " + X);
@@ -65,5 +70,21 @@ public abstract class Contas {
 		infos += "_______________________________\n";
 		infos += "Extrato: " + "\n" + this.extrato() + "\n";
 		return infos;
+	}
+
+	public double getLimite() {
+		return limite;
+	}
+
+	public void setLimite(double limite) {
+		this.limite = limite;
+	}
+
+	public double getRendimento() {
+		return rendimento;
+	}
+
+	public void setRendimento(double rendimento) {
+		this.rendimento = rendimento;
 	}	
 }

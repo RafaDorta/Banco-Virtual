@@ -5,6 +5,8 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import java.io.IOException;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Color;
@@ -48,6 +50,25 @@ public class PrimeiraTela {
 		frame.setBounds(100, 100, 477, 359);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		
+		JButton btnSair = new JButton("Salvar e Sair");
+		btnSair.setFont(new Font("Times New Roman", Font.BOLD, 10));
+		btnSair.setBounds(10, 286, 98, 23);
+		btnSair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					Menu.salvarSair();
+					frame.setVisible(false);
+				} catch (IOException e1) {
+					
+					System.out.print("a");
+					e1.printStackTrace();
+				}
+				
+				
+			}
+		});
+		frame.getContentPane().add(btnSair);
 		
 		JLabel lblNewLabel = new JLabel("Deseja entrar como?");
 		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 15));

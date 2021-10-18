@@ -1,6 +1,14 @@
 import java.util.ArrayList;
-
+import java.util.Base64;
+import java.util.Scanner;
 import javax.swing.JOptionPane;
+
+import java.io.File;
+
+import java.io.FileNotFoundException;
+
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Menu {
 	
@@ -52,6 +60,7 @@ public class Menu {
 			newCliente.setLogin(login);
 			newCliente.setSenha(senha);
 			newCliente.setNome(nome);
+			System.out.print(gerenteAtual.getNome());
 			newCliente.setGerente(gerenteAtual.getNome());
 			clientes.add(newCliente);
 			
@@ -109,27 +118,101 @@ public class Menu {
 		return clienteAtual.verificaExtrato(conta);
 	}
 	
-	public static void acoesGerente(int acao,Cliente cli,int conta,double valor,Cliente cli2,int conta2,int tipoConta,double limite,double taxa) {
-		switch(acao)
-		{
+	public static boolean verificaConta(int conta) {
+		for(Cliente cli : clientes) {
+			for(Contas con : cli.getContas()) {
+				if(conta == con.getConta()) {
+					
+					return true;
+				}
 				
-			case 3 :
-				gerenteAtual.aplicaDinheiro(cli, conta, valor);
-				break;
-				
-			case 4 :
-				gerenteAtual.transfere(cli, cli2, conta, conta2, valor);
-				break;
-				
-			case 5 :
-				gerenteAtual.retira(cli, conta, valor);
-				break;
-				
-			case 6 :
-				gerenteAtual.ajustaDados(cli, conta, tipoConta, limite, taxa);
-				break;
+			}
+			
 		}
+		
+		return false;
 	}
+	
+	
+	public static boolean alteraDados(double valor,int conta, int flag) {
+		
+		for(Cliente cli : clientes) {
+			for(Contas con : cli.getContas()) {
+				if(conta == con.getConta()) {
+					if(flag == 0) {
+					if(! con.getTipo().equals("Especial")) {
+						JOptionPane.showMessageDialog(null, "Esta conta n\306o eh do tipo Especial!","BANCO JURA",JOptionPane.WARNING_MESSAGE);
+						return false;
+					}
+					con.setLimite(valor);
+					}else {
+						if(! con.getTipo().equals("Poupança")) {
+							JOptionPane.showMessageDialog(null, "Esta conta n\306o eh do tipo Poupança!","BANCO JURA",JOptionPane.WARNING_MESSAGE);
+							return false;
+						}
+						con.setRendimento(valor);
+						
+					}
+				}
+				
+			}
+			
+			
+			
+		}
+		
+		
+		return true;
+	}
+	
+	
+	public static boolean transfere(int conta, int conta2, double valor) {
+		int i =0;
+		for(Cliente cli : clientes) {
+			for(Contas con : cli.getContas()) {
+				if(conta == con.getConta()) {
+					i++;
+				}else if(conta2 == con.getConta()) {
+					i++;
+				}
+			}
+		}
+		
+		if(i<2 || conta == conta2) {
+			JOptionPane.showMessageDialog(null, "Numero da Conta errado!","BANCO JURA",JOptionPane.WARNING_MESSAGE);
+			return false;
+		}
+		
+		String senha = JOptionPane.showInputDialog("Digite sua senha:").strip();
+		if(! senha.equals(gerenteAtual.getSenha())) {
+			return false;
+		}
+		
+		for(Cliente cli : clientes) {
+			for(Contas con : cli.getContas()) {
+				if(conta == con.getConta()) {
+					if(! con.sacar(valor)) {
+						
+						
+						JOptionPane.showMessageDialog(null, "Valor Insuficiente!","BANCO JURA",JOptionPane.WARNING_MESSAGE);
+						return false;
+					}
+				}
+			}
+		}
+		
+		for(Cliente cli : clientes) {
+			for(Contas con : cli.getContas()) {
+				if(conta2 == con.getConta()) {
+					con.depositar(valor);
+				}
+			}
+		}
+		
+		
+		return true;
+	}
+	
 	
 	public static String verificaClienteContas() {
 		return gerenteAtual.verificaNomeCliente(clientes);
@@ -146,6 +229,31 @@ public class Menu {
 		return "inexistente";
 	}
 	
+	public static boolean aplicaDinheiroG(int conta, double valor) {
+		for(Cliente cli: clientes) {
+			for(Contas con: cli.getContas()) {
+				if(conta == con.getConta()) {
+					con.depositar(valor);
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
+	public static boolean retiraDinheiroG(int conta, double valor) {
+		for(Cliente cli: clientes) {
+			for(Contas con: cli.getContas()) {
+				if(conta == con.getConta()) {
+					con.sacar(valor);
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
+	
 	public static void alteraSenha(String senhaAntiga,String newSenha,int flag) {
 		if(flag==1) {
 			clienteAtual.alteraSenha(senhaAntiga,newSenha);
@@ -154,27 +262,145 @@ public class Menu {
 		}
 	}
 	
-	public static void main(String[] args) {
+	
+	public static String encrypt(String user) {
+	
+		return new String(Base64.getEncoder().encode(user.getBytes()));
+	}
+	
+	public static String desencrypt(String user) {
 		
-		Gerente admin = new Gerente();
-		admin.setLogin("admin");
-		admin.setSenha("admin");
-		admin.setNome("Dani");
-		gerentes.add(admin);
-		Cliente cli = new Cliente();
-		cli.setLogin("1234");
-		cli.setSenha("0000");
-		cli.setNome("Julia");
-		cli.setGerente("Dani");
-		clientes.add(cli);
+		return new String(Base64.getDecoder().decode(user.getBytes()));
+	}
+	
+	
+	
+	public static void salvarSair() throws IOException {
+		String string = "";
+		FileWriter writer = new FileWriter("DataBase1.txt"); 
+		for(Cliente c: clientes) {
+			
+		  string += c.getNome() + " " + c.getLogin()+ " "  + c.getSenha()+ " "  + c.getGerente() + " ";
+		}
+		string += "-";
+		for(Gerente g : gerentes) {
+			
+			string += g.getNome() + " " + g.getLogin()+ " "  + g.getSenha()+ " ";
+		}
+		string += "-";
+		string = encrypt(string);
+		 writer.write(string);
+		writer.close();
+	}
+	
+	public static void main(String[] args) throws FileNotFoundException {
 		
-		Cliente cl = new Cliente();
-		cl.setLogin("2256");
-		cl.setSenha("0000");
-		cl.setNome("Rafael");
-		cl.setGerente("Dani");
-		clientes.add(cl);
+Scanner useDelimiter = new Scanner(new File("DataBase.txt"), "UTF-8").useDelimiter("\\A");
+String texto = useDelimiter.next();
 		
+			
+		
+		texto = desencrypt(texto);
+		
+		int flag = 0;
+		int tipo = 0;
+		int espaco = 0;
+		String nome= "";
+		String login= "";
+		String senha= "";
+		String gerente= "";
+		
+		
+		
+		for(int i =0;i<texto.length();i++) {
+			char l = texto.charAt(i);
+			
+			if(flag == 0) {
+				
+			if (espaco != 4) {
+				if(Character.compare(l, ' ') == 0)
+				{
+					
+					tipo++;
+					espaco++;
+					
+				}else {
+				
+				switch(tipo) {
+				case 0: nome += l;break;
+				case 1: login += l; break;
+				case 2: senha += l; break;
+				case 3: gerente += l; break;
+				}
+				}
+			}else {
+				
+				espaco = 0;
+				Cliente c =new Cliente();
+				c.setNome(nome);
+				
+				c.setLogin(login);
+				
+				c.setSenha(senha);
+				
+				c.setGerente(gerente);
+				
+				clientes.add(c);
+				
+				nome = "" + l;
+				login = "";
+				senha ="";
+				gerente="";
+				tipo =0;
+				
+				
+			}
+			
+			if(Character.compare(l, '-') == 0) {flag = 1; espaco = 0; continue;}
+				
+		}else {
+			if (espaco != 3) {
+				
+				if(Character.compare(l, ' ') == 0)
+				{
+					
+					tipo++;
+					espaco++;
+				}else {
+				switch(tipo) {
+				case 0: nome += l; break;
+				case 1: login += l; break;
+				case 2: senha += l; break;
+				}
+				
+				}
+			}else {
+				espaco = 0;
+				tipo=0;
+				Gerente g =new Gerente();
+				g.setNome(nome);
+				
+				g.setLogin(login);
+				
+				g.setSenha(senha);
+				
+				
+				gerentes.add(g);
+				
+				nome = "" + l;
+				login = "";
+				senha ="";
+				gerente="";
+				
+			}
+			
+			
+			
+		}
+		}
+		
+		
+	
 		PrimeiraTela.main(args);
 
 	}

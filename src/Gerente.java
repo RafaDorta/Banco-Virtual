@@ -24,9 +24,7 @@ public class Gerente extends Usuario{
 		return Nomes;
 	}
 	
-	public void aplicaDinheiro(Cliente cliente, int conta, double valor) {
-		//aplicação de dinheiro pra um determinado cliente
-	}
+	
 	
 	public void transfere(Cliente c1, Cliente c2, int conta1, int conta2,double valor) {
 		//faz transferencia de dinheiro entre dois clientes 

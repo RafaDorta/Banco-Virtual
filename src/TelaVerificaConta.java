@@ -73,13 +73,20 @@ public class TelaVerificaConta {
 						frame.setVisible(false);
 						TelaCliente.main(null);
 					}
-				} else {
+				} else if(tipo==2){
 					String v = Menu.verificaInfosConta(Integer.parseInt(textField.getText()));
 					if(v!="inexistente") {
 						frame.setVisible(false);
 						TelaVerificaInfos.main(null,Integer.parseInt(textField.getText()));
 					} else {
 						JOptionPane.showMessageDialog(null, "Numero da Conta errado!","BANCO JURA",JOptionPane.WARNING_MESSAGE);
+					}
+				}else if(tipo == 3) {
+					if(! Menu.verificaConta(Integer.parseInt(textField.getText()))) {
+						JOptionPane.showMessageDialog(null, "Numero da Conta errado!","BANCO JURA",JOptionPane.WARNING_MESSAGE);
+					}else {
+						frame.setVisible(false);
+						TelaAlterarDados.main(null,Integer.parseInt(textField.getText()));
 					}
 				}
 			}
@@ -90,10 +97,13 @@ public class TelaVerificaConta {
 		
 		JButton btnVoltar = new JButton("<-- VOLTAR");
 		btnVoltar.setFont(new Font("Century", Font.PLAIN, 7));
+		
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(tipo >= 2) {
 				frame.setVisible(false);
-				TelaCliente.main(null);
+				TelaGerente.main(null);}else {frame.setVisible(false);
+				TelaCliente.main(null);}
 			}
 		});
 		btnVoltar.setBounds(10, 11, 79, 24);
