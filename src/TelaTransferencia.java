@@ -94,13 +94,11 @@ public class TelaTransferencia {
 		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD, 13));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
 				if(Menu.transfere(Integer.parseInt(textEnvia.getText()), Integer.parseInt(textRecebe.getText()),Double.parseDouble(textValor.getText()))) {
 					JOptionPane.showMessageDialog(null, "Dinheiro Transferido para Conta: " + Integer.parseInt(textRecebe.getText()));
 					frame.setVisible(false);
 					TelaGerente.main(null);	
 				}
-				
 			}
 		});
 		btnNewButton.setBounds(167, 262, 130, 23);

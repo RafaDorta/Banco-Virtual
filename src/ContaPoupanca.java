@@ -1,12 +1,9 @@
 
 public class ContaPoupanca extends Contas{
 
-
-	
 	public ContaPoupanca() {
 		setTipo("Poupança");
 	}
-	
 	
 	public void Rende() {
 		setSaldo(getSaldo()+ (getSaldo()*getRendimento()/100)); 

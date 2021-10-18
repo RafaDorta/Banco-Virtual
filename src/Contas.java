@@ -45,8 +45,6 @@ public abstract class Contas {
 	
 	public abstract boolean sacar(double X);
 	
-	
-	
 	public void depositar(double X) {
 			this.saldo += X;
 			extrato.add("Deposito de " + X);

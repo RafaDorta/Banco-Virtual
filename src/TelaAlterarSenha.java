@@ -49,11 +49,10 @@ public class TelaAlterarSenha {
 		JButton btnVoltar = new JButton("<-- VOLTAR");
 		btnVoltar .addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(tipo == 0)
-				{
+				if(tipo == 0) {
 					frame.setVisible(false);
 					TelaCliente.main(null);
-				}else {
+				} else {
 					frame.setVisible(false);
 					TelaGerente.main(null);
 				}		
@@ -87,12 +86,11 @@ public class TelaAlterarSenha {
 		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(tipo == 0)
-				{
+				if(tipo == 0) {
 					Menu.alteraSenha(textAtual.getText(), textNova.getText(), 1);
 					frame.setVisible(false);
 					TelaCliente.main(null);
-				}else {
+				} else {
 					Menu.alteraSenha(textAtual.getText(), textNova.getText(), 0);
 					frame.setVisible(false);
 					TelaGerente.main(null);

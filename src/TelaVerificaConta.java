@@ -67,7 +67,6 @@ public class TelaVerificaConta {
 					} else {
 						JOptionPane.showMessageDialog(null, "Numero da Conta errado!","BANCO JURA",JOptionPane.WARNING_MESSAGE);
 					}
-					
 				}else if(tipo==1) {
 					if(Menu.acoesCliente(4,null, Integer.parseInt(textField.getText()), 0)) {
 						frame.setVisible(false);

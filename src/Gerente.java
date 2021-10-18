@@ -23,18 +23,4 @@ public class Gerente extends Usuario{
 		}
 		return Nomes;
 	}
-	
-	
-	
-	public void transfere(Cliente c1, Cliente c2, int conta1, int conta2,double valor) {
-		//faz transferencia de dinheiro entre dois clientes 
-	}
-	
-	public void retira(Cliente cliente, int conta,double valor) {
-		//faz retiradas maiores de R$ 110.000,00
-	}
-	
-	public void ajustaDados(Cliente cliente, int conta, int tipo, double newLimite, double newTaxa) {
-		//dadastra/edita os limites de retiradas negativas e taxa de juros da poupança
-	}
 }

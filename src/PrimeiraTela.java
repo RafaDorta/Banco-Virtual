@@ -60,12 +60,9 @@ public class PrimeiraTela {
 					Menu.salvarSair();
 					frame.setVisible(false);
 				} catch (IOException e1) {
-					
 					System.out.print("a");
 					e1.printStackTrace();
 				}
-				
-				
 			}
 		});
 		frame.getContentPane().add(btnSair);

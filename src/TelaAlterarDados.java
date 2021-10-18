@@ -48,12 +48,8 @@ public class TelaAlterarDados {
 		btnVoltar.setBounds(10, 11, 79, 24);
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
 					frame.setVisible(false);
-					TelaGerente.main(null);
-				
-					
-						
+					TelaGerente.main(null);		
 			}
 		});
 		frame.getContentPane().setLayout(null);
@@ -65,20 +61,13 @@ public class TelaAlterarDados {
 		btnAlterarLimite.setBounds(135, 121, 190, 24);
 		btnAlterarLimite.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
 				double newLimite = Double.parseDouble(JOptionPane.showInputDialog("Digite o Limite:"));
 				
 				if(Menu.alteraDados(newLimite, conta, 0)) {
 					JOptionPane.showMessageDialog(null, "Limite Alterado com Sucesso!");
 					frame.setVisible(false);
 					TelaGerente.main(null);
-					
-				}
-				
-					
-				
-					
-						
+				}			
 			}
 		});
 		frame.getContentPane().add(btnAlterarLimite);
@@ -88,18 +77,13 @@ public class TelaAlterarDados {
 		btnAlterarRendimento.setBounds(135, 173, 190, 24);
 		btnAlterarRendimento.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
 				double newRendimento = Double.parseDouble(JOptionPane.showInputDialog("Digite o Rendimento:"));
 				
 				if(Menu.alteraDados(newRendimento, conta, 1)) {
 					JOptionPane.showMessageDialog(null, "Rendimento Alterado com Sucesso!");
 					frame.setVisible(false);
 					TelaGerente.main(null);
-					
-				}
-				
-					
-						
+				}						
 			}
 		});
 		frame.getContentPane().add(btnAlterarRendimento);

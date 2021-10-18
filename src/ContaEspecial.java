@@ -1,12 +1,9 @@
 
 public class ContaEspecial extends Contas{
 	
-	
 	public ContaEspecial() {
 		setTipo("Especial");
 	}
-	
-
 	
 	@Override
 	public boolean sacar(double X) {

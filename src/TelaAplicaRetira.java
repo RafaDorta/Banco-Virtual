@@ -73,16 +73,15 @@ public class TelaAplicaRetira {
 		btnEfetuar.setFont(new Font("Times New Roman", Font.BOLD, 13));
 		btnEfetuar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(tipo == 0)
-				{
+				if(tipo == 0) {
 					Menu.acoesCliente(2, null, Integer.parseInt(textConta.getText()), Double.parseDouble(textValor.getText()));
 					frame.setVisible(false);
 					TelaCliente.main(null);
-				}else if(tipo==1) {
+				} else if(tipo==1) {
 					Menu.acoesCliente(3, null, Integer.parseInt(textConta.getText()), Double.parseDouble(textValor.getText()));
 					frame.setVisible(false);
 					TelaCliente.main(null);
-				}else if(tipo==2) {
+				} else if(tipo==2) {
 					if(Menu.aplicaDinheiroG(Integer.parseInt(textConta.getText()), Double.parseDouble(textValor.getText())))
 					{JOptionPane.showMessageDialog(null, "Dinheiro Aplicado na Conta!");
 					
@@ -91,7 +90,7 @@ public class TelaAplicaRetira {
 					else {
 						JOptionPane.showMessageDialog(null, "Numero da Conta errado!","BANCO JURA",JOptionPane.WARNING_MESSAGE);
 					}
-				}else {
+				} else {
 					if(Menu.retiraDinheiroG(Integer.parseInt(textConta.getText()), Double.parseDouble(textValor.getText()))) {
 					JOptionPane.showMessageDialog(null, "Dinheiro Retirado da Conta!");
 					frame.setVisible(false);

@@ -56,8 +56,8 @@ public class TelaCriarUsuario {
 		JButton btnVoltar = new JButton("<-- VOLTAR");
 		btnVoltar .addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-					frame.setVisible(false);
-					TelaGerente.main(null);
+				frame.setVisible(false);
+				TelaGerente.main(null);
 			}
 		});
 		btnVoltar.setFont(new Font("Century", Font.PLAIN, 8));
@@ -107,12 +107,10 @@ public class TelaCriarUsuario {
 							JOptionPane.showMessageDialog(null, "Cliente criado com Sucesso!!\n  Bem-Vindo ao Banco JURA!");	
 						}else {
 							JOptionPane.showMessageDialog(null, "Gerente criado com Sucesso!!\n  Bem-Vindo ao Banco JURA!");
-						}
-								
+						}	
 						frame.setVisible(false);
 						TelaGerente.main(null);
-						
-					}else {
+					} else {
 						JOptionPane.showMessageDialog(null, "Login ja esta sendo utilizado!","BANCO JURA",JOptionPane.WARNING_MESSAGE);
 					}
 				}	

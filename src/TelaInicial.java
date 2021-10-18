@@ -76,11 +76,10 @@ public class TelaInicial {
 		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(Menu.checkLogin(textLogin.getText(),new String(passwordField.getPassword()),1)) {
-					
 					JOptionPane.showMessageDialog(null, "Bem Vindo!","BANCO JURA",JOptionPane.INFORMATION_MESSAGE);
 					frame.setVisible(false);
 					TelaCliente.main(null);
-				}else {
+				} else {
 					JOptionPane.showMessageDialog(null, "Dados Invalidos!","BANCO JURA",JOptionPane.ERROR_MESSAGE);
 				}
 			}
