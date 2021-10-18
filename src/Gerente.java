@@ -24,10 +24,6 @@ public class Gerente extends Usuario{
 		return Nomes;
 	}
 	
-	public void verificaInfosConta() {
-		//verifica as informações de cada uma das contas
-	}
-	
 	public void aplicaDinheiro(Cliente cliente, int conta, double valor) {
 		//aplicação de dinheiro pra um determinado cliente
 	}
@@ -43,5 +39,4 @@ public class Gerente extends Usuario{
 	public void ajustaDados(Cliente cliente, int conta, int tipo, double newLimite, double newTaxa) {
 		//dadastra/edita os limites de retiradas negativas e taxa de juros da poupança
 	}
-
 }

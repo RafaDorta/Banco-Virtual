@@ -68,26 +68,23 @@ public class TelaGerente {
 				TelaVerificarContas.main(null);
 			}
 		});
-		btnVerificarClientes.setBounds(132, 58, 203, 23);
+		btnVerificarClientes.setBounds(132, 46, 203, 23);
 		frame.getContentPane().add(btnVerificarClientes);
 		
 		JButton btnVerificarConta = new JButton("Verificar Conta");
 		btnVerificarConta.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		btnVerificarConta .addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
-					
-					
-				
-				
+				frame.setVisible(false);
+				TelaVerificaConta.main(null,2);
 			}
 		});
-		btnVerificarConta.setBounds(132, 92, 203, 23);
+		btnVerificarConta.setBounds(132, 80, 203, 23);
 		frame.getContentPane().add(btnVerificarConta);
 		
 		JButton btnAplicarDinheiro = new JButton("Aplicar Dinheiro");
 		btnAplicarDinheiro.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		btnAplicarDinheiro.setBounds(132, 126, 203, 23);
+		btnAplicarDinheiro.setBounds(132, 114, 203, 23);
 		btnAplicarDinheiro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
@@ -98,7 +95,7 @@ public class TelaGerente {
 		
 		JButton btnFazerTransferencia = new JButton("Fazer Transferencia");
 		btnFazerTransferencia.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		btnFazerTransferencia.setBounds(132, 160, 203, 23);
+		btnFazerTransferencia.setBounds(132, 148, 203, 23);
 		btnFazerTransferencia.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
@@ -109,7 +106,7 @@ public class TelaGerente {
 		
 		JButton btnFazerRetirada = new JButton("Fazer Retirada");
 		btnFazerRetirada.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		btnFazerRetirada.setBounds(132, 194, 203, 23);
+		btnFazerRetirada.setBounds(132, 182, 203, 23);
 		btnFazerRetirada.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
@@ -120,7 +117,7 @@ public class TelaGerente {
 		
 		JButton btnAlterarSenha = new JButton("Alterar Senha");
 		btnAlterarSenha.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		btnAlterarSenha.setBounds(132, 262, 203, 23);
+		btnAlterarSenha.setBounds(132, 286, 203, 23);
 		btnAlterarSenha.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
@@ -131,7 +128,7 @@ public class TelaGerente {
 		
 		JButton btnNewButton = new JButton("Criar Nova Conta");
 		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		btnNewButton.setBounds(132, 228, 203, 23);
+		btnNewButton.setBounds(132, 216, 203, 23);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
@@ -139,5 +136,16 @@ public class TelaGerente {
 			}
 		});
 		frame.getContentPane().add(btnNewButton);
+		
+		JButton btnAjusta = new JButton("Ajustar Dados");
+		btnAjusta.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		btnAjusta.setBounds(132, 252, 203, 23);
+		btnAjusta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.setVisible(false);
+				TelaVerificaConta.main(null,2);
+			}
+		});
+		frame.getContentPane().add(btnAjusta);
 	}
 }

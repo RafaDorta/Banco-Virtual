@@ -3,6 +3,7 @@ import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -59,13 +60,26 @@ public class TelaVerificaConta {
 		btnEfetuar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(tipo==0) {
+					String v = Menu.verificaExtratoCliente(Integer.parseInt(textField.getText()));
+					if(v!="inexistente") {
+						frame.setVisible(false);
+						TelaExtrato.main(null,Integer.parseInt(textField.getText()));
+					} else {
+						JOptionPane.showMessageDialog(null, "Numero da Conta errado!","BANCO JURA",JOptionPane.WARNING_MESSAGE);
+					}
 					
-					frame.setVisible(false);
-					TelaExtrato.main(null);
-				}else {
+				}else if(tipo==1) {
 					if(Menu.acoesCliente(4,null, Integer.parseInt(textField.getText()), 0)) {
 						frame.setVisible(false);
 						TelaCliente.main(null);
+					}
+				} else {
+					String v = Menu.verificaInfosConta(Integer.parseInt(textField.getText()));
+					if(v!="inexistente") {
+						frame.setVisible(false);
+						TelaVerificaInfos.main(null,Integer.parseInt(textField.getText()));
+					} else {
+						JOptionPane.showMessageDialog(null, "Numero da Conta errado!","BANCO JURA",JOptionPane.WARNING_MESSAGE);
 					}
 				}
 			}

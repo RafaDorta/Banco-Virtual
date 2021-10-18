@@ -56,6 +56,12 @@ public class Menu {
 			clientes.add(newCliente);
 			
 		} else { //criar gerente
+			for(Gerente g : gerentes) {
+				if(login.equals(g.getLogin())) {
+					return false;
+				}
+			}
+			
 			Gerente newGerente = new Gerente();
 			newGerente.setLogin(login);
 			newGerente.setSenha(senha);
@@ -95,24 +101,17 @@ public class Menu {
 					return false;
 				}
 				break;
-				
-			case 5 :
-				clienteAtual.verificaExtrato(conta);
-				break;
 		}
 		return true;
+	}
+	
+	public static String verificaExtratoCliente(int conta) {
+		return clienteAtual.verificaExtrato(conta);
 	}
 	
 	public static void acoesGerente(int acao,Cliente cli,int conta,double valor,Cliente cli2,int conta2,int tipoConta,double limite,double taxa) {
 		switch(acao)
 		{
-			case 1 :
-				gerenteAtual.verificaNomeCliente(clientes);
-				break;
-				
-			case 2 :
-				gerenteAtual.verificaInfosConta();
-				break;
 				
 			case 3 :
 				gerenteAtual.aplicaDinheiro(cli, conta, valor);
@@ -134,6 +133,17 @@ public class Menu {
 	
 	public static String verificaClienteContas() {
 		return gerenteAtual.verificaNomeCliente(clientes);
+	}
+	
+	public static String verificaInfosConta(int conta) {
+		for(Cliente cli : clientes) {
+			for(Contas con : cli.getContas()) {
+				if(conta == con.getConta()) {
+					return con.infosConta();
+				}
+			}
+		}
+		return "inexistente";
 	}
 	
 	public static void alteraSenha(String senhaAntiga,String newSenha,int flag) {

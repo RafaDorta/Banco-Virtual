@@ -21,8 +21,13 @@ public class ContaPoupanca extends Contas{
 	}
 
 	@Override
-	public void sacar(double X) {
+	public boolean sacar(double X) {
+		if(getSaldo() - X < 0) {
+			return false;
+		}
 		
-		
+		setSaldo(getSaldo() - X);	
+		extrato.add("Saque de " + X);
+		return true;
 	}
 }

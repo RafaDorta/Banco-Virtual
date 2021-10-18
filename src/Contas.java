@@ -2,50 +2,68 @@ import java.util.ArrayList;
 
 public abstract class Contas {
 
-	private int Conta;
-	private double Saldo;
-	private String Tipo;
+	private int conta;
+	private double saldo;
+	private String nome;
+	private String tipo;
 	public ArrayList<String> extrato = new ArrayList<String>();
 	
 	public String getTipo() {
-		return Tipo;
+		return tipo;
 	}
 	
 	public void setTipo(String tipo) {
-		Tipo = tipo;
+		this.tipo = tipo;
 	}
 	
 	public int getConta() {
-		return Conta;
+		return this.conta;
 	}
 	
 	public void setConta(int conta) {
-		Conta = conta;
+		this.conta = conta;
 	}
 	
 	public double getSaldo() {
-		return Saldo;
+		return this.saldo;
 	}
 	
 	public void setSaldo(double saldo) {
-		Saldo = saldo;
+		this.saldo = saldo;
 	}
 	
-	public abstract void sacar(double X);
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	
+	public abstract boolean sacar(double X);
 	
 	public void depositar(double X) {
-			Saldo = Saldo + X;
+			this.saldo += X;
 			extrato.add("Deposito de " + X);
 	}
 	
-	public void extrato() {
+	public String extrato() {
+		String todoExtrato= "";
 		for(String ext : extrato) {
-			System.out.println(ext);
+			todoExtrato += "\t" + ext + "\n";
 		}
+		return todoExtrato;
 	}
 	
-	public void infosConta() {
-		System.out.printf("Número da conta: ",this.getConta());
-		System.out.printf("\nTipo de conta: ",this.getTipo());
-	}
+	public String infosConta() {
+		String infos="";
+		infos += "Nome do cliente: " + this.getNome() + "\n";
+		infos += "_______________________________\n";
+		infos += "Número da conta: " + this.getConta() + "\n";
+		infos += "_______________________________\n";
+		infos += "Tipo de conta: " + this.getTipo() + "\n";
+		infos += "_______________________________\n";
+		infos += "Extrato: " + "\n" + this.extrato() + "\n";
+		return infos;
+	}	
 }

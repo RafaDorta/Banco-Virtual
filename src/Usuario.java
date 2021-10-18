@@ -25,7 +25,7 @@ public abstract class Usuario {
 	public abstract void setSenha(String senha);
 	
 	public void alteraSenha(String senhaAntiga, String senhaNova) {
-        if(senhaAntiga==senha) {
+        if(senhaAntiga.equals(this.getSenha())) {
             senha=senhaNova;
             JOptionPane.showMessageDialog(null, "Senha alterada com sucesso!");
         } else {

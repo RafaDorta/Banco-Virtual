@@ -16,13 +16,13 @@ public class ContaEspecial extends Contas{
 	}
 	
 	@Override
-	public void sacar(double X) {
+	public boolean sacar(double X) {
 		if(getSaldo() - X < getLimite()) {
-			//insuficiente
+			return false;
 		}
-		else {
-			setSaldo(getSaldo() - X);	
-			extrato.add("Saque de " + X);
-		}
+		
+		setSaldo(getSaldo() - X);	
+		extrato.add("Saque de " + X);
+		return true;
 	}
 }

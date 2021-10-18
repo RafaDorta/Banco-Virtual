@@ -79,7 +79,7 @@ public class TelaAplicaRetira {
 					frame.setVisible(false);
 					TelaCliente.main(null);
 				}else if(tipo==1) {
-					JOptionPane.showMessageDialog(null, "Dinheiro Retirado da Conta!");
+					Menu.acoesCliente(3, null, Integer.parseInt(textConta.getText()), Double.parseDouble(textValor.getText()));
 					frame.setVisible(false);
 					TelaCliente.main(null);
 				}else if(tipo==2) {

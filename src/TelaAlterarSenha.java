@@ -6,14 +6,13 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 public class TelaAlterarSenha {
 
 	private JFrame frame;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField textAtual;
+	private JTextField textNova;
 
 	/**
 	 * Launch the application.
@@ -69,20 +68,20 @@ public class TelaAlterarSenha {
 		lblNewLabel_2_1.setBounds(133, 81, 201, 14);
 		frame.getContentPane().add(lblNewLabel_2_1);
 		
-		textField = new JTextField();
-		textField.setColumns(10);
-		textField.setBounds(142, 106, 182, 20);
-		frame.getContentPane().add(textField);
+		textAtual = new JTextField();
+		textAtual.setColumns(10);
+		textAtual.setBounds(142, 106, 182, 20);
+		frame.getContentPane().add(textAtual);
 		
 		JLabel lblNewLabel_2 = new JLabel("*-*-*  NOVA SENHA  *-*-*  ");
 		lblNewLabel_2.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		lblNewLabel_2.setBounds(137, 137, 192, 14);
 		frame.getContentPane().add(lblNewLabel_2);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(142, 162, 182, 20);
-		frame.getContentPane().add(textField_1);
+		textNova = new JTextField();
+		textNova.setColumns(10);
+		textNova.setBounds(142, 162, 182, 20);
+		frame.getContentPane().add(textNova);
 		
 		JButton btnNewButton = new JButton("ALTERAR");
 		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD, 15));
@@ -90,11 +89,11 @@ public class TelaAlterarSenha {
 			public void actionPerformed(ActionEvent e) {
 				if(tipo == 0)
 				{
-					JOptionPane.showMessageDialog(null, "Senha Alterada com Sucesso!");
+					Menu.alteraSenha(textAtual.getText(), textNova.getText(), 1);
 					frame.setVisible(false);
 					TelaCliente.main(null);
 				}else {
-					JOptionPane.showMessageDialog(null, "Senha Alterada com Sucesso!");
+					Menu.alteraSenha(textAtual.getText(), textNova.getText(), 0);
 					frame.setVisible(false);
 					TelaGerente.main(null);
 				}

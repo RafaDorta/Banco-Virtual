@@ -27,24 +27,32 @@ public class Cliente extends Usuario {
 		this.gerente = gerente;
 	}
 	
+	public ArrayList<Contas> getContas() {
+		return this.contas;
+	}
+	
 	public void abrirConta(int numeroConta, String tipoConta) {
 		switch(tipoConta) 
 		{
 		 	case "Corrente":
 		 		ContaCorrente cC = new ContaCorrente();
 		 		cC.setConta(numeroConta);
+		 		cC.setNome(this.getNome());
 				contas.add(cC);
 		 		break;
 		 		
 		 	case "Poupança":
 		 		ContaPoupanca cP = new ContaPoupanca();
 		 		cP.setConta(numeroConta);
+		 		cP.setNome(this.getNome());
 				contas.add(cP);
 		 		break;
 		 		
 		 	case "Especial":
 		 		ContaEspecial cE = new ContaEspecial();
 		 		cE.setConta(numeroConta);
+		 		cE.setNome(this.getNome());
+		 		cE.setLimite(0);
 				contas.add(cE);
 		 		break;
 		}
@@ -63,8 +71,9 @@ public class Cliente extends Usuario {
 	public boolean retiraDinheiro(int conta, double valor) {
 		for (Contas c : contas) {
 		    if(conta == c.getConta()) {
-		    	c.sacar(valor);
-		    	return true;
+		    	if(c.sacar(valor))
+		    		return true;
+		    	return false;
 		    }
 		}
 		return false;
@@ -80,12 +89,15 @@ public class Cliente extends Usuario {
 		return false;
 	}
 	
-	public void verificaExtrato(int conta) {
+	public String verificaExtrato(int conta) {
+		String extrato;
 		for(Contas c : contas) {
 			if(conta == c.getConta()) {
-				c.extrato();
+				extrato = c.extrato();
+				return extrato;
 			}
 		}
+		return "inexistente";
 	}
 	
 	public String printContas() {
@@ -96,7 +108,7 @@ public class Cliente extends Usuario {
 			for(int i =0;i<22 - this.getNome().length();i++) {
 				pontos += "_";
 			}
-			clienteConta += this.getNome() + pontos + c.getConta()+"\r\n";
+			clienteConta += this.getNome() + pontos + c.getConta()+"\n";
 		}
 		return clienteConta;
 	}
