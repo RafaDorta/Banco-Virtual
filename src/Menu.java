@@ -277,7 +277,7 @@ public class Menu {
 	
 	public static void salvarSair() throws IOException {
 		String string = "";
-		FileWriter writer = new FileWriter("DataBase1.txt"); 
+		FileWriter writer = new FileWriter("DataBase.txt"); 
 		for(Cliente c: clientes) {
 			
 		  string += c.getNome() + " " + c.getLogin()+ " "  + c.getSenha()+ " "  + c.getGerente() + " ";
