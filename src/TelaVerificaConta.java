@@ -73,19 +73,18 @@ public class TelaVerificaConta {
 						TelaCliente.main(null);
 					}
 				} else if(tipo==2){
-					String v = Menu.verificaInfosConta(Integer.parseInt(textField.getText()));
-					if(v!="inexistente") {
+					if(Menu.verificaConta(Integer.parseInt(textField.getText()))) {
 						frame.setVisible(false);
 						TelaVerificaInfos.main(null,Integer.parseInt(textField.getText()));
 					} else {
 						JOptionPane.showMessageDialog(null, "Numero da Conta errado!","BANCO JURA",JOptionPane.WARNING_MESSAGE);
 					}
 				}else if(tipo == 3) {
-					if(! Menu.verificaConta(Integer.parseInt(textField.getText()))) {
-						JOptionPane.showMessageDialog(null, "Numero da Conta errado!","BANCO JURA",JOptionPane.WARNING_MESSAGE);
-					}else {
+					if(Menu.verificaConta(Integer.parseInt(textField.getText()))) {
 						frame.setVisible(false);
 						TelaAlterarDados.main(null,Integer.parseInt(textField.getText()));
+					}else {
+						JOptionPane.showMessageDialog(null, "Numero da Conta errado!","BANCO JURA",JOptionPane.WARNING_MESSAGE);
 					}
 				}
 			}

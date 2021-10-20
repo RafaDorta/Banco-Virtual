@@ -63,7 +63,7 @@ public class TelaAlterarDados {
 			public void actionPerformed(ActionEvent e) {
 				double newLimite = Double.parseDouble(JOptionPane.showInputDialog("Digite o Limite:"));
 				
-				if(Menu.alteraDados(newLimite, conta, 0)) {
+				if(Menu.acoesGerente(4, conta, 0, newLimite, 0)) {
 					JOptionPane.showMessageDialog(null, "Limite Alterado com Sucesso!");
 					frame.setVisible(false);
 					TelaGerente.main(null);
@@ -79,7 +79,7 @@ public class TelaAlterarDados {
 			public void actionPerformed(ActionEvent e) {
 				double newRendimento = Double.parseDouble(JOptionPane.showInputDialog("Digite o Rendimento:"));
 				
-				if(Menu.alteraDados(newRendimento, conta, 1)) {
+				if(Menu.acoesGerente(4, conta, 0, newRendimento, 1)) {
 					JOptionPane.showMessageDialog(null, "Rendimento Alterado com Sucesso!");
 					frame.setVisible(false);
 					TelaGerente.main(null);

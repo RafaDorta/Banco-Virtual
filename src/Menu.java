@@ -48,38 +48,6 @@ public class Menu {
 		return gerenteAtual.getNome();
 	}
 	
-	public static boolean criaUsuario(String login, String senha, String nome, int flag) {
-		if(flag==1) { //criar cliente
-			for(Cliente c : clientes) {
-				if(login.equals(c.getLogin())) {
-					return false;
-				}
-			}
-			
-			Cliente newCliente = new Cliente();
-			newCliente.setLogin(login);
-			newCliente.setSenha(senha);
-			newCliente.setNome(nome);
-			System.out.print(gerenteAtual.getNome());
-			newCliente.setGerente(gerenteAtual.getNome());
-			clientes.add(newCliente);
-			
-		} else { //criar gerente
-			for(Gerente g : gerentes) {
-				if(login.equals(g.getLogin())) {
-					return false;
-				}
-			}
-			
-			Gerente newGerente = new Gerente();
-			newGerente.setLogin(login);
-			newGerente.setSenha(senha);
-			newGerente.setNome(nome);
-			gerentes.add(newGerente);
-		}
-		return true;
-	}
-	
 	public static boolean acoesCliente(int acao,String tipoConta,int conta,double valor) {
 		switch(acao)
 		{
@@ -118,120 +86,36 @@ public class Menu {
 		return clienteAtual.verificaExtrato(conta);
 	}
 	
-	public static boolean verificaConta(int conta) {
-		for(Cliente cli : clientes) {
-			for(Contas con : cli.getContas()) {
-				if(conta == con.getConta()) {
-					return true;
-				}
-			}
+	public static boolean acoesGerente(int acao,int conta, int conta2,double valor,int flag) {
+		
+		switch(acao) {
+			case 1:
+				return gerenteAtual.aplicaDinheiro(conta, valor);
+			case 2:
+				return gerenteAtual.transfere(conta, conta2, valor);
+			case 3:
+				return gerenteAtual.retiraDinheiro(conta, valor);
+			case 4:
+				return gerenteAtual.alteraDados(valor, conta, flag);
 		}
+		
 		return false;
 	}
 	
-	public static boolean alteraDados(double valor,int conta, int flag) {
-		for(Cliente cli : clientes) {
-			for(Contas con : cli.getContas()) {
-				if(conta == con.getConta()) {
-					if(flag == 0) {
-						if(! con.getTipo().equals("Especial")) {
-							JOptionPane.showMessageDialog(null, "Esta conta n\306o eh do tipo Especial!","BANCO JURA",JOptionPane.WARNING_MESSAGE);
-							return false;
-						}
-						con.setLimite(valor);
-					}else {
-						if(! con.getTipo().equals("Poupança")) {
-							JOptionPane.showMessageDialog(null, "Esta conta n\306o eh do tipo Poupança!","BANCO JURA",JOptionPane.WARNING_MESSAGE);
-							return false;
-						}
-						con.setRendimento(valor);
-					}
-				}
-			}
-		}
-		return true;
+	public static boolean criaUsuario(String login, String senha, String nome, int flag) {
+		return gerenteAtual.criaUsuario(login, senha, nome, flag, clientes, gerentes);
 	}
 	
-	public static boolean transfere(int conta, int conta2, double valor) {
-		int i =0;
-		for(Cliente cli : clientes) {
-			for(Contas con : cli.getContas()) {
-				if(conta == con.getConta()) {
-					i++;
-				}else if(conta2 == con.getConta()) {
-					i++;
-				}
-			}
-		}
-		
-		if(i<2 || conta == conta2) {
-			JOptionPane.showMessageDialog(null, "Numero da Conta errado!","BANCO JURA",JOptionPane.WARNING_MESSAGE);
-			return false;
-		}
-		
-		String senha = JOptionPane.showInputDialog("Digite sua senha:").strip();
-		if(! senha.equals(gerenteAtual.getSenha())) {
-			return false;
-		}
-		
-		for(Cliente cli : clientes) {
-			for(Contas con : cli.getContas()) {
-				if(conta == con.getConta()) {
-					if(! con.sacar(valor)) {
-						JOptionPane.showMessageDialog(null, "Valor Insuficiente!","BANCO JURA",JOptionPane.WARNING_MESSAGE);
-						return false;
-					}
-				}
-			}
-		}
-		
-		for(Cliente cli : clientes) {
-			for(Contas con : cli.getContas()) {
-				if(conta2 == con.getConta()) {
-					con.depositar(valor);
-				}
-			}
-		}
-		return true;
+	public static boolean verificaConta(int conta) {
+		return gerenteAtual.verificaConta(conta);
 	}
 	
 	public static String verificaClienteContas() {
-		return gerenteAtual.verificaNomeCliente(clientes);
+		return gerenteAtual.verificaNomeCliente();
 	}
 	
 	public static String verificaInfosConta(int conta) {
-		for(Cliente cli : clientes) {
-			for(Contas con : cli.getContas()) {
-				if(conta == con.getConta()) {
-					return con.infosConta();
-				}
-			}
-		}
-		return "inexistente";
-	}
-	
-	public static boolean aplicaDinheiroG(int conta, double valor) {
-		for(Cliente cli: clientes) {
-			for(Contas con: cli.getContas()) {
-				if(conta == con.getConta()) {
-					con.depositar(valor);
-					return true;
-				}
-			}
-		}
-		return false;
-	}
-	
-	public static boolean retiraDinheiroG(int conta, double valor) {
-		for(Cliente cli: clientes) {
-			for(Contas con: cli.getContas()) {
-				if(conta == con.getConta()) {
-					con.sacar(valor);
-					return true;
-				}
-			}
-		}
-		return false;
+		return gerenteAtual.verificaInfosConta(conta);
 	}
 	
 	public static void alteraSenha(String senhaAntiga,String newSenha,int flag) {
@@ -242,7 +126,6 @@ public class Menu {
 		}
 	}
 	
-	
 	public static String encrypt(String user) {
 		return new String(Base64.getEncoder().encode(user.getBytes()));
 	}
@@ -252,7 +135,7 @@ public class Menu {
 	}
 	
 	public static void salvarSair() throws IOException {
-		String string = "";
+		String string= "";
 		FileWriter writer = new FileWriter("DataBase.txt"); 
 		for(Cliente c: clientes) {
 		  string += c.getNome() + " " + c.getLogin()+ " "  + c.getSenha()+ " "  + c.getGerente() + " ";

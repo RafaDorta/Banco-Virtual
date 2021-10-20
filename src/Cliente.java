@@ -38,14 +38,14 @@ public class Cliente extends Usuario {
 		 		ContaCorrente cC = new ContaCorrente();
 		 		cC.setConta(numeroConta);
 		 		cC.setNome(this.getNome());
-				contas.add(cC);
+				this.contas.add(cC);
 		 		break;
 		 		
 		 	case "Poupança":
 		 		ContaPoupanca cP = new ContaPoupanca();
 		 		cP.setConta(numeroConta);
 		 		cP.setNome(this.getNome());
-				contas.add(cP);
+		 		this.contas.add(cP);
 		 		break;
 		 		
 		 	case "Especial":
@@ -53,13 +53,13 @@ public class Cliente extends Usuario {
 		 		cE.setConta(numeroConta);
 		 		cE.setNome(this.getNome());
 		 		cE.setLimite(0);
-				contas.add(cE);
+		 		this.contas.add(cE);
 		 		break;
 		}
 	}
 	
 	public boolean aplicaDinheiro(int conta, double valor) {
-		for (Contas c : contas) {
+		for (Contas c : this.contas) {
 		    if(conta == c.getConta()) {
 		    	c.depositar(valor);
 		    	return true;
@@ -69,7 +69,7 @@ public class Cliente extends Usuario {
 	}
 	
 	public boolean retiraDinheiro(int conta, double valor) {
-		for (Contas c : contas) {
+		for (Contas c : this.contas) {
 		    if(conta == c.getConta()) {
 		    	if(c.sacar(valor))
 		    		return true;
@@ -80,7 +80,7 @@ public class Cliente extends Usuario {
 	}
 	
 	public boolean verificaSaldo(int conta) {
-		for (Contas c : contas) {
+		for (Contas c : this.contas) {
 		    if(conta == c.getConta()) {
 		    	JOptionPane.showMessageDialog(null, "Saldo = R$ " + c.getSaldo());
 		    	return true;
@@ -91,7 +91,7 @@ public class Cliente extends Usuario {
 	
 	public String verificaExtrato(int conta) {
 		String extrato;
-		for(Contas c : contas) {
+		for(Contas c : this.contas) {
 			if(conta == c.getConta()) {
 				extrato = c.extrato();
 				return extrato;
@@ -103,7 +103,7 @@ public class Cliente extends Usuario {
 	public String printContas() {
 		String clienteConta="";
 		
-		for(Contas c : contas) {
+		for(Contas c : this.contas) {
 			String pontos="";
 			for(int i =0;i<22 - this.getNome().length();i++) {
 				pontos += "_";

@@ -82,7 +82,7 @@ public class TelaAplicaRetira {
 					frame.setVisible(false);
 					TelaCliente.main(null);
 				} else if(tipo==2) {
-					if(Menu.aplicaDinheiroG(Integer.parseInt(textConta.getText()), Double.parseDouble(textValor.getText())))
+					if(Menu.acoesGerente(1, Integer.parseInt(textConta.getText()), 0, Double.parseDouble(textValor.getText()), 0))
 					{JOptionPane.showMessageDialog(null, "Dinheiro Aplicado na Conta!");
 					
 					frame.setVisible(false);
@@ -91,7 +91,7 @@ public class TelaAplicaRetira {
 						JOptionPane.showMessageDialog(null, "Numero da Conta errado!","BANCO JURA",JOptionPane.WARNING_MESSAGE);
 					}
 				} else {
-					if(Menu.retiraDinheiroG(Integer.parseInt(textConta.getText()), Double.parseDouble(textValor.getText()))) {
+					if(Menu.acoesGerente(3, Integer.parseInt(textConta.getText()), 0, Double.parseDouble(textValor.getText()), 0)) {
 					JOptionPane.showMessageDialog(null, "Dinheiro Retirado da Conta!");
 					frame.setVisible(false);
 					TelaGerente.main(null);}

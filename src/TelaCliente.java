@@ -68,7 +68,7 @@ public class TelaCliente {
 		btnVoltar .addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
-				TelaInicial.main(null);	
+				PrimeiraTela.main(null);	
 			}
 		});
 		btnVoltar.setFont(new Font("Century", Font.PLAIN, 8));
