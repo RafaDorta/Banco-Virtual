@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.EventQueue;
 
 
@@ -10,6 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JTextField;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
 
@@ -18,6 +20,7 @@ public class TelaInicial {
 	private JFrame frame;
 	private JTextField textLogin;
 	private JPasswordField passwordField;
+	ImageIcon fundo = new ImageIcon(getClass().getResource("Fundo4.png"));
 
 	/**
 	 * Launch the application.
@@ -54,17 +57,17 @@ public class TelaInicial {
 		
 		JLabel lblNewLabel = new JLabel("LOGIN :");
 		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblNewLabel.setBounds(128, 124, 76, 31);
+		lblNewLabel.setBounds(106, 115, 76, 31);
 		frame.getContentPane().add(lblNewLabel);
 		
 		textLogin = new JTextField();
-		textLogin.setBounds(190, 130, 138, 20);
+		textLogin.setBounds(168, 121, 138, 20);
 		frame.getContentPane().add(textLogin);
 		textLogin.setColumns(10);
 		
-		JLabel lblSenha = new JLabel("SENHA :");
+		JLabel lblSenha = new JLabel("SENHA:");
 		lblSenha.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblSenha.setBounds(128, 180, 76, 31);
+		lblSenha.setBounds(106, 157, 76, 31);
 		frame.getContentPane().add(lblSenha);
 		
 		JLabel lblNewLabel_1 = new JLabel("BEM-VINDO A CENTRAL DO BANCO JURA");
@@ -85,7 +88,7 @@ public class TelaInicial {
 			}
 		});
 		btnEntrar.setFont(new Font("Times New Roman", Font.PLAIN, 15));
-		btnEntrar.setBounds(196, 248, 99, 23);
+		btnEntrar.setBounds(191, 219, 99, 23);
 		frame.getContentPane().add(btnEntrar);
 				
 		JButton btnVoltar = new JButton("<-- VOLTAR");
@@ -96,12 +99,18 @@ public class TelaInicial {
 			}
 		});
 		btnVoltar.setFont(new Font("Century", Font.PLAIN, 8));
-		btnVoltar.setBounds(10, 11, 79, 24);
+		btnVoltar.setBounds(10, 11, 92, 24);
 		frame.getContentPane().add(btnVoltar);	
 		
 		passwordField = new JPasswordField();
 		passwordField.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		passwordField.setBounds(190, 186, 138, 20);
+		passwordField.setBounds(168, 163, 138, 20);
 		frame.getContentPane().add(passwordField);
+		
+		JLabel lblNewLabel_4 = new JLabel("New label");
+		lblNewLabel_4.setForeground(new Color(204, 153, 0));
+		lblNewLabel_4.setBounds(0, 0, 461, 320);
+		frame.getContentPane().add(lblNewLabel_4);
+		lblNewLabel_4.setIcon(fundo);
 	}
 }

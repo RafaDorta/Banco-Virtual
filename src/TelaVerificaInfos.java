@@ -1,5 +1,7 @@
+import java.awt.Color;
 import java.awt.EventQueue;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
@@ -15,6 +17,7 @@ import javax.swing.JScrollPane;
 public class TelaVerificaInfos {
 
 	private JFrame frame;
+	ImageIcon fundo = new ImageIcon(getClass().getResource("Fundo3.png"));
 
 	/**
 	 * Launch the application.
@@ -66,6 +69,7 @@ public class TelaVerificaInfos {
 		frame.getContentPane().add(textArea);
 		
 		JLabel lblNewLabel = new JLabel("Informa\u00E7\u00F5es da Conta");
+		lblNewLabel.setForeground(new Color(214, 170, 35));
 		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		lblNewLabel.setBounds(150, 31, 180, 24);
 		frame.getContentPane().add(lblNewLabel);
@@ -74,5 +78,13 @@ public class TelaVerificaInfos {
 		scrollPane.setToolTipText("");
 		scrollPane.setBounds(70, 66, 302, 153);
 		frame.getContentPane().add(scrollPane);
+		
+		
+		JLabel lblNewLabel_4 = new JLabel("New label");
+		lblNewLabel_4.setForeground(new Color(204, 153, 0));
+		lblNewLabel_4.setBounds(0, 0, 461, 320);
+		frame.getContentPane().add(lblNewLabel_4);
+		lblNewLabel_4.setIcon(fundo);
+		
 	}
 }

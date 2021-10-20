@@ -1,8 +1,10 @@
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -11,6 +13,7 @@ import javax.swing.JLabel;
 public class TelaGerente {
 
 	private JFrame frame;
+	ImageIcon fundo = new ImageIcon(getClass().getResource("Fundo3.png"));
 
 	/**
 	 * Launch the application.
@@ -56,6 +59,7 @@ public class TelaGerente {
 		frame.getContentPane().add(btnVoltar);
 		
 		JLabel lblNewLabel = new JLabel("Bem Vindo, " + Menu.retornaNome(0));
+		lblNewLabel.setForeground(new Color(214, 170, 35));
 		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		lblNewLabel.setBounds(152, 21, 248, 14);
 		frame.getContentPane().add(lblNewLabel);
@@ -147,5 +151,12 @@ public class TelaGerente {
 			}
 		});
 		frame.getContentPane().add(btnAjusta);
+		
+		JLabel lblNewLabel_4 = new JLabel("New label");
+		lblNewLabel_4.setForeground(new Color(204, 153, 0));
+		lblNewLabel_4.setBounds(0, 0, 461, 320);
+		frame.getContentPane().add(lblNewLabel_4);
+		lblNewLabel_4.setIcon(fundo);
+		
 	}
 }

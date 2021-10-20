@@ -1,8 +1,10 @@
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -19,6 +21,7 @@ public class TelaCriarUsuario {
 	private JTextField textSenha;
 	public int i = 0;
 	public int flag=-1;
+	ImageIcon fundo = new ImageIcon(getClass().getResource("Fundo3.png"));
 
 	/**
 	 * Launch the application.
@@ -65,16 +68,19 @@ public class TelaCriarUsuario {
 		frame.getContentPane().add(btnVoltar);
 		
 		JLabel lblNewLabel = new JLabel("Nome :");
+		lblNewLabel.setForeground(new Color(214, 170, 35));
 		lblNewLabel.setBounds(121, 115, 57, 14);
 		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		frame.getContentPane().add(lblNewLabel);
 		
 		JLabel lblUsuario = new JLabel("Login :");
+		lblUsuario.setForeground(new Color(214, 170, 35));
 		lblUsuario.setBounds(121, 151, 57, 14);
 		lblUsuario.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		frame.getContentPane().add(lblUsuario);
 		
 		JLabel lblNewLabel_1 = new JLabel("Senha :");
+		lblNewLabel_1.setForeground(new Color(214, 170, 35));
 		lblNewLabel_1.setBounds(121, 192, 57, 14);
 		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		frame.getContentPane().add(lblNewLabel_1);
@@ -122,6 +128,10 @@ public class TelaCriarUsuario {
 		rdbtnGerente.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		JRadioButton rdbtnCliente = new JRadioButton("Cliente");
 		rdbtnCliente.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		rdbtnCliente.setForeground(new Color(214, 170, 35));
+		rdbtnCliente.setBackground(new Color(69, 69, 69));
+		rdbtnGerente.setForeground(new Color(214, 170, 35));
+		rdbtnGerente.setBackground(new Color(69, 69, 69));
 		rdbtnGerente.setBounds(135, 66, 81, 23);
 		rdbtnGerente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -152,5 +162,11 @@ public class TelaCriarUsuario {
 			}
 		});
 		frame.getContentPane().add(rdbtnCliente);
+		
+		JLabel lblNewLabel_4 = new JLabel("New label");
+		lblNewLabel_4.setForeground(new Color(204, 153, 0));
+		lblNewLabel_4.setBounds(0, 0, 461, 320);
+		frame.getContentPane().add(lblNewLabel_4);
+		lblNewLabel_4.setIcon(fundo);
 	}
 }

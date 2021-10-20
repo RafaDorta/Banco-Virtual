@@ -1,8 +1,10 @@
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -12,6 +14,7 @@ import javax.swing.JTextArea;
 public class TelaExtrato {
 
 	private JFrame frame;
+	ImageIcon fundo = new ImageIcon(getClass().getResource("Fundo4.png"));
 
 	/**
 	 * Launch the application.
@@ -71,6 +74,13 @@ public class TelaExtrato {
 		scrollPane.setToolTipText("");
 		scrollPane.setBounds(80, 90, 302, 153);
 		frame.getContentPane().add(scrollPane);
+		
+		JLabel lblNewLabel_4 = new JLabel("New label");
+		lblNewLabel_4.setForeground(new Color(204, 153, 0));
+		lblNewLabel_4.setBounds(0, 0, 461, 320);
+		frame.getContentPane().add(lblNewLabel_4);
+		lblNewLabel_4.setIcon(fundo);
+		
 	
 	}
 }

@@ -15,8 +15,8 @@ import java.awt.Color;
 public class PrimeiraTela {
 	
 	private JFrame frame;
-	ImageIcon logo = new ImageIcon(getClass().getResource("Jura.png"));
-	ImageIcon fundo = new ImageIcon(getClass().getResource("Fundo5.png"));
+	
+	ImageIcon fundo = new ImageIcon(getClass().getResource("Fundo1.png"));
 
 	/**
 	 * Launch the application.
@@ -67,12 +67,14 @@ public class PrimeiraTela {
 		});
 		frame.getContentPane().add(btnSair);
 		
-		JLabel lblNewLabel = new JLabel("Deseja entrar como?");
-		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblNewLabel.setBounds(45, 146, 144, 14);
+		JLabel lblNewLabel = new JLabel("Deseja entrar como:");
+		lblNewLabel.setForeground(new Color(214, 170, 35));
+		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 18));
+		lblNewLabel.setBounds(45, 146, 172, 23);
 		frame.getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("BEM-VINDO A CENTRAL DO BANCO JURA");
+		lblNewLabel_1.setForeground(new Color(214, 170, 35));
 		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 19));
 		lblNewLabel_1.setBounds(35, 89, 392, 46);
 		frame.getContentPane().add(lblNewLabel_1);
@@ -100,6 +102,7 @@ public class PrimeiraTela {
 		frame.getContentPane().add(btnCliente);
 
 		JLabel lblNewLabel_4 = new JLabel("New label");
+		lblNewLabel_4.setForeground(new Color(204, 153, 0));
 		lblNewLabel_4.setBounds(0, 0, 461, 320);
 		frame.getContentPane().add(lblNewLabel_4);
 		lblNewLabel_4.setIcon(fundo);

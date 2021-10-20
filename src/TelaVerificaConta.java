@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 
@@ -5,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -13,6 +15,8 @@ public class TelaVerificaConta {
 
 	private JFrame frame;
 	private JTextField textField;
+	ImageIcon fundo = new ImageIcon(getClass().getResource("Fundo3.png"));
+	ImageIcon fundo2 = new ImageIcon(getClass().getResource("Fundo4.png"));
 	
 	/**
 	 * Launch the application.
@@ -48,6 +52,9 @@ public class TelaVerificaConta {
 		
 		JLabel lblNewLabel = new JLabel("CONTA :");
 		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		if(tipo >= 2) {
+			lblNewLabel.setForeground(new Color(214, 170, 35));
+		}
 		lblNewLabel.setBounds(111, 133, 79, 24);
 		frame.getContentPane().add(lblNewLabel);
 		
@@ -106,5 +113,19 @@ public class TelaVerificaConta {
 		});
 		btnVoltar.setBounds(10, 11, 79, 24);
 		frame.getContentPane().add(btnVoltar);
+		
+		if(tipo >= 2) {
+			JLabel lblNewLabel_4 = new JLabel("New label");
+			lblNewLabel_4.setForeground(new Color(204, 153, 0));
+			lblNewLabel_4.setBounds(0, 0, 461, 320);
+			frame.getContentPane().add(lblNewLabel_4);
+			lblNewLabel_4.setIcon(fundo);
+		}else {
+			JLabel lblNewLabel_4 = new JLabel("New label");
+			lblNewLabel_4.setForeground(new Color(204, 153, 0));
+			lblNewLabel_4.setBounds(0, 0, 461, 320);
+			frame.getContentPane().add(lblNewLabel_4);
+			lblNewLabel_4.setIcon(fundo2);
+		}
 	}
 }

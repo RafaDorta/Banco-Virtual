@@ -1,8 +1,10 @@
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -16,6 +18,7 @@ public class TelaTransferencia {
 	private JTextField textRecebe;
 	private JTextField textValor;
 	private JButton btnNewButton;
+	ImageIcon fundo = new ImageIcon(getClass().getResource("Fundo3.png"));
 
 	/**
 	 * Launch the application.
@@ -71,16 +74,19 @@ public class TelaTransferencia {
 		frame.getContentPane().add(textRecebe);
 		
 		JLabel lblNewLabel_2 = new JLabel("*-*-*  CONTA DO DESTINATARIO  *-*-*  ");
+		lblNewLabel_2.setForeground(new Color(214, 170, 35));
 		lblNewLabel_2.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		lblNewLabel_2.setBounds(85, 130, 295, 14);
 		frame.getContentPane().add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_2_1 = new JLabel("*-*-*  CONTA DO REMETENTE  *-*-*  ");
+		lblNewLabel_2_1.setForeground(new Color(214, 170, 35));
 		lblNewLabel_2_1.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		lblNewLabel_2_1.setBounds(95, 74, 275, 14);
 		frame.getContentPane().add(lblNewLabel_2_1);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("VALOR");
+		lblNewLabel_1_1.setForeground(new Color(214, 170, 35));
 		lblNewLabel_1_1.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		lblNewLabel_1_1.setBounds(204, 186, 57, 24);
 		frame.getContentPane().add(lblNewLabel_1_1);
@@ -103,5 +109,11 @@ public class TelaTransferencia {
 		});
 		btnNewButton.setBounds(167, 262, 130, 23);
 		frame.getContentPane().add(btnNewButton);
+		
+		JLabel lblNewLabel_4 = new JLabel("New label");
+		lblNewLabel_4.setForeground(new Color(204, 153, 0));
+		lblNewLabel_4.setBounds(0, 0, 461, 320);
+		frame.getContentPane().add(lblNewLabel_4);
+		lblNewLabel_4.setIcon(fundo);
 	}
 }

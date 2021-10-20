@@ -1,8 +1,10 @@
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -13,6 +15,8 @@ public class TelaAlterarSenha {
 	private JFrame frame;
 	private JTextField textAtual;
 	private JTextField textNova;
+	ImageIcon fundo = new ImageIcon(getClass().getResource("Fundo3.png"));
+	ImageIcon fundo2 = new ImageIcon(getClass().getResource("Fundo4.png"));
 
 	/**
 	 * Launch the application.
@@ -63,6 +67,9 @@ public class TelaAlterarSenha {
 		frame.getContentPane().add(btnVoltar);
 		
 		JLabel lblNewLabel_2_1 = new JLabel("*-*-*  SENHA ATUAL  *-*-*  ");
+		if(tipo != 0) {
+			lblNewLabel_2_1.setForeground(new Color(214, 170, 35));
+		}
 		lblNewLabel_2_1.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		lblNewLabel_2_1.setBounds(133, 81, 201, 14);
 		frame.getContentPane().add(lblNewLabel_2_1);
@@ -73,6 +80,9 @@ public class TelaAlterarSenha {
 		frame.getContentPane().add(textAtual);
 		
 		JLabel lblNewLabel_2 = new JLabel("*-*-*  NOVA SENHA  *-*-*  ");
+		if(tipo != 0) {
+			lblNewLabel_2.setForeground(new Color(214, 170, 35));
+		}
 		lblNewLabel_2.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		lblNewLabel_2.setBounds(137, 137, 192, 14);
 		frame.getContentPane().add(lblNewLabel_2);
@@ -99,5 +109,20 @@ public class TelaAlterarSenha {
 		});
 		btnNewButton.setBounds(174, 235, 115, 23);
 		frame.getContentPane().add(btnNewButton);
+		
+		if(tipo != 0) {
+			JLabel lblNewLabel_4 = new JLabel("New label");
+			lblNewLabel_4.setForeground(new Color(204, 153, 0));
+			lblNewLabel_4.setBounds(0, 0, 461, 320);
+			frame.getContentPane().add(lblNewLabel_4);
+			lblNewLabel_4.setIcon(fundo);
+		}else {
+			JLabel lblNewLabel_4 = new JLabel("New label");
+			lblNewLabel_4.setForeground(new Color(204, 153, 0));
+			lblNewLabel_4.setBounds(0, 0, 461, 320);
+			frame.getContentPane().add(lblNewLabel_4);
+			lblNewLabel_4.setIcon(fundo2);
+		}
+		
 	}
 }
