@@ -74,6 +74,8 @@ public class TelaVerificarContas {
 		txtrRafaelJulia.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		txtrRafaelJulia.setText(Menu.verificaClienteContas());
 		txtrRafaelJulia.setBounds(114, 77, 214, 198);
+		txtrRafaelJulia.setBackground(new Color(69, 69, 69));
+		txtrRafaelJulia.setForeground(new Color(214, 170, 35));
 		frame.getContentPane().add(txtrRafaelJulia);
 		
 		

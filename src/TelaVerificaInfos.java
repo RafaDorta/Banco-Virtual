@@ -66,6 +66,8 @@ public class TelaVerificaInfos {
 		JTextArea textArea = new JTextArea();
 		textArea.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		textArea.setText(Menu.verificaInfosConta(conta));
+		textArea.setBackground(new Color(69, 69, 69));
+		textArea.setForeground(new Color(214, 170, 35));
 		frame.getContentPane().add(textArea);
 		
 		JLabel lblNewLabel = new JLabel("Informa\u00E7\u00F5es da Conta");
