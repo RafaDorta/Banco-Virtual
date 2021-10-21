@@ -5,15 +5,18 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import java.io.IOException;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import java.awt.Color;
 
 
 public class PrimeiraTela {
 	
 	private JFrame frame;
-	ImageIcon logo = new ImageIcon(getClass().getResource("Jura.png"));
-
+	
+	ImageIcon fundo = new ImageIcon(getClass().getResource("Fundo1.png"));
 
 	/**
 	 * Launch the application.
@@ -27,10 +30,8 @@ public class PrimeiraTela {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-				
 			}
 		});
-		
 	}
 
 	/**
@@ -45,16 +46,35 @@ public class PrimeiraTela {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.getContentPane().setBackground(Color.LIGHT_GRAY);
 		frame.setBounds(100, 100, 477, 359);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Deseja entrar como?");
-		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblNewLabel.setBounds(45, 146, 144, 14);
+		JButton btnSair = new JButton("Salvar e Sair");
+		btnSair.setFont(new Font("Times New Roman", Font.BOLD, 10));
+		btnSair.setBounds(10, 286, 98, 23);
+		btnSair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					Menu.salvarSair();
+					frame.setVisible(false);
+				} catch (IOException e1) {
+					System.out.print("a");
+					e1.printStackTrace();
+				}
+			}
+		});
+		frame.getContentPane().add(btnSair);
+		
+		JLabel lblNewLabel = new JLabel("Deseja entrar como:");
+		lblNewLabel.setForeground(new Color(214, 170, 35));
+		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 18));
+		lblNewLabel.setBounds(45, 146, 172, 23);
 		frame.getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("BEM-VINDO A CENTRAL DO BANCO JURA");
+		lblNewLabel_1.setForeground(new Color(214, 170, 35));
 		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 19));
 		lblNewLabel_1.setBounds(35, 89, 392, 46);
 		frame.getContentPane().add(lblNewLabel_1);
@@ -78,15 +98,13 @@ public class PrimeiraTela {
 				TelaInicial.main(null);
 			}
 		});
-		
 		btnCliente.setBounds(155, 248, 153, 23);
 		frame.getContentPane().add(btnCliente);
-		
-		JLabel lblNewLabel_2 = new JLabel("New label");
 
-    lblNewLabel_2.setBounds(191, 11, 80, 80);
-    frame.getContentPane().add(lblNewLabel_2);
-    lblNewLabel_2.setIcon(logo);
+		JLabel lblNewLabel_4 = new JLabel("New label");
+		lblNewLabel_4.setForeground(new Color(204, 153, 0));
+		lblNewLabel_4.setBounds(0, 0, 461, 320);
+		frame.getContentPane().add(lblNewLabel_4);
+		lblNewLabel_4.setIcon(fundo);
 	}
-	
 }

@@ -1,85 +1,88 @@
 import java.util.ArrayList;
 
-public class Contas {
+public abstract class Contas {
 
-	private int Conta;
-	private double Saldo;
-	private double Limite;
-	private double Rendimento;
-	private String Tipo;
-	private ArrayList<String> extrato = new ArrayList<String>();
+	private int conta;
+	private double saldo;
+	private String nome;
+	private String tipo;
+	private double limite;
+	private double rendimento;
+	
+	public ArrayList<String> extrato = new ArrayList<String>();
 	
 	public String getTipo() {
-		return Tipo;
+		return tipo;
 	}
 	
 	public void setTipo(String tipo) {
-		Tipo = tipo;
-	}
-	
-	public double getRendimento() {
-		return Rendimento;
-	}
-	
-	public void setRendimento(double rendimento) {
-		Rendimento = rendimento;
+		this.tipo = tipo;
 	}
 	
 	public int getConta() {
-		return Conta;
+		return this.conta;
 	}
 	
 	public void setConta(int conta) {
-		Conta = conta;
+		this.conta = conta;
 	}
 	
 	public double getSaldo() {
-		return Saldo;
+		return this.saldo;
 	}
 	
 	public void setSaldo(double saldo) {
-		Saldo = saldo;
+		this.saldo = saldo;
 	}
 	
-	public double getLimite() {
-		return Limite;
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 	
-	public void setLimite(double limite) {
-		Limite = limite;
-	}
+	public abstract boolean sacar(double X);
 	
-	public void Rende()
-	{
-		Saldo = Saldo + (Saldo * Rendimento/ 100);
-		extrato.add("Rendimento de " + (Saldo * Rendimento/ 100));
-	}
-	
-	public void sacar(double X)
-	{
-		if(Saldo - X < Limite) {
-			System.out.printf("Dinheiro Insuficiente");
-		}
-		else {
-			Saldo = Saldo - X;	
-			extrato.add("Saque de " + X);
-		}
-	}
-	
-	public void depositar(double X)
-	{
-			Saldo = Saldo + X;
+	public void depositar(double X) {
+			this.saldo += X;
 			extrato.add("Deposito de " + X);
 	}
 	
-	public void extrato() {
+	public String extrato() {
+		String todoExtrato= "";
 		for(String ext : extrato) {
-			System.out.println(ext);
+			todoExtrato += "\t" + ext + "\n";
 		}
+		return todoExtrato;
 	}
 	
-	public void infosConta() {
-		System.out.printf("Número da conta: ",this.getConta());
-		System.out.printf("\nTipo de conta: ",this.getTipo());
+	public String infosConta() {
+		String infos="";
+		infos += "Nome do cliente: " + this.getNome() + "\n";
+		infos += "_______________________________\n";
+		infos += "Número da conta: " + this.getConta() + "\n";
+		infos += "_______________________________\n";
+		infos += "Tipo de conta: " + this.getTipo() + "\n";
+		infos += "_______________________________\n";
+		infos += "Extrato: " + "\n" + this.extrato() + "\n";
+		return infos;
 	}
+
+	public double getLimite() {
+		return limite;
+	}
+
+	public void setLimite(double limite) {
+		this.limite = limite;
+	}
+
+	public double getRendimento() {
+		return rendimento;
+	}
+
+	public void setRendimento(double rendimento) {
+		this.rendimento = rendimento;
+	}	
 }

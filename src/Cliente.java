@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 public class Cliente extends Usuario {
 
 	private String gerente;
@@ -25,79 +27,89 @@ public class Cliente extends Usuario {
 		this.gerente = gerente;
 	}
 	
-	public void abrirConta(int numeroConta, String tipoConta) {
-		Contas newConta = new Contas();
-		newConta.setConta(numeroConta);
-		newConta.setTipo(tipoConta);
-		
-		contas.add(newConta);
+	public ArrayList<Contas> getContas() {
+		return this.contas;
 	}
 	
-	public void aplicaDinheiro(int conta, double valor) {
-		int flag=0;
-		
-		for (Contas c : contas) {
+	public void abrirConta(int numeroConta, String tipoConta) {
+		switch(tipoConta) 
+		{
+		 	case "Corrente":
+		 		ContaCorrente cC = new ContaCorrente();
+		 		cC.setConta(numeroConta);
+		 		cC.setNome(this.getNome());
+				this.contas.add(cC);
+		 		break;
+		 		
+		 	case "Poupança":
+		 		ContaPoupanca cP = new ContaPoupanca();
+		 		cP.setConta(numeroConta);
+		 		cP.setNome(this.getNome());
+		 		this.contas.add(cP);
+		 		break;
+		 		
+		 	case "Especial":
+		 		ContaEspecial cE = new ContaEspecial();
+		 		cE.setConta(numeroConta);
+		 		cE.setNome(this.getNome());
+		 		cE.setLimite(0);
+		 		this.contas.add(cE);
+		 		break;
+		}
+	}
+	
+	public boolean aplicaDinheiro(int conta, double valor) {
+		for (Contas c : this.contas) {
 		    if(conta == c.getConta()) {
 		    	c.depositar(valor);
-		    	flag = 1;
+		    	return true;
 		    }
 		}
-		
-		if(flag==0) { 
-			//msg de erro (conta não existe)
-		}
-		else {
-			//msg de sucesso
-		}
+		return false;
 	}
 	
-	public void retiraDinheiro(int conta, double valor) {
-		int flag=0;
-		
-		for (Contas c : contas) {
+	public boolean retiraDinheiro(int conta, double valor) {
+		for (Contas c : this.contas) {
 		    if(conta == c.getConta()) {
-		    	c.sacar(valor);
-		    	flag = 1;
+		    	if(c.sacar(valor))
+		    		return true;
+		    	return false;
 		    }
 		}
-		
-		if(flag==0) { 
-			//msg de erro (conta não existe)
-		}
-		else {
-			//msg de sucesso
-		}
+		return false;
 	}
 	
-	public void verificaSaldo(int conta) {
-		int flag=0;
-		
-		for (Contas c : contas) {
+	public boolean verificaSaldo(int conta) {
+		for (Contas c : this.contas) {
 		    if(conta == c.getConta()) {
-		    	//imprimir saldo
-		    	flag = 1;
+		    	JOptionPane.showMessageDialog(null, "Saldo = R$ " + c.getSaldo());
+		    	return true;
 		    }
 		}
-		
-		if(flag==0) { 
-			//msg de erro (conta não existe)
-		}
-		else {
-			//msg de sucesso
-		}
+		return false;
 	}
 	
-	public void verificaExtrato(int conta) {
-		for(Contas c : contas) {
+	public String verificaExtrato(int conta) {
+		String extrato;
+		for(Contas c : this.contas) {
 			if(conta == c.getConta()) {
-				c.extrato();
+				extrato = c.extrato();
+				return extrato;
 			}
 		}
+		return "inexistente";
 	}
 	
-	public void printContas() {
-		for(Contas c : contas) {
-			System.out.println(c.getConta());
+	public String printContas() {
+		String clienteConta="";
+		
+		for(Contas c : this.contas) {
+			String pontos="";
+			for(int i =0;i<22 - this.getNome().length();i++) {
+				pontos += "_";
+			}
+			clienteConta += this.getNome() + pontos + c.getConta()+"\n";
 		}
+		return clienteConta;
 	}
 }

@@ -1,20 +1,20 @@
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
-import javax.swing.JList;
-import javax.swing.JComboBox;
-import javax.swing.JRadioButton;
+
 
 public class TelaVerificarContas {
 
 	private JFrame frame;
-
+	ImageIcon fundo = new ImageIcon(getClass().getResource("Fundo3.png"));
 	/**
 	 * Launch the application.
 	 */
@@ -50,8 +50,8 @@ public class TelaVerificarContas {
 		JButton btnVoltar = new JButton("<-- VOLTAR");
 		btnVoltar .addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-					frame.setVisible(false);
-					TelaGerente.main(null);
+				frame.setVisible(false);
+				TelaGerente.main(null);
 			}
 		});
 		btnVoltar.setFont(new Font("Century", Font.PLAIN, 8));
@@ -59,22 +59,30 @@ public class TelaVerificarContas {
 		frame.getContentPane().add(btnVoltar);
 		
 		JLabel lblNewLabel = new JLabel("N\u00B0 da Conta");
+		lblNewLabel.setForeground(new Color(214, 170, 35));
 		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblNewLabel.setBounds(303, 52, 88, 14);
+		lblNewLabel.setBounds(250, 52, 88, 14);
 		frame.getContentPane().add(lblNewLabel);
 		
 		JLabel lblNome = new JLabel("Nome");
+		lblNome.setForeground(new Color(214, 170, 35));
 		lblNome.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblNome.setBounds(69, 52, 88, 14);
+		lblNome.setBounds(114, 52, 88, 14);
 		frame.getContentPane().add(lblNome);
 		
-		JTextArea textArea = new JTextArea();
-		textArea.setBounds(32, 78, 114, 198);
-		frame.getContentPane().add(textArea);
+		JTextArea txtrRafaelJulia = new JTextArea();
+		txtrRafaelJulia.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		txtrRafaelJulia.setText(Menu.verificaClienteContas());
+		txtrRafaelJulia.setBounds(114, 77, 214, 198);
+		txtrRafaelJulia.setBackground(new Color(69, 69, 69));
+		txtrRafaelJulia.setForeground(new Color(214, 170, 35));
+		frame.getContentPane().add(txtrRafaelJulia);
 		
-		JList list = new JList();
-		list.setBounds(279, 77, 126, 143);
-		frame.getContentPane().add(list);
 		
+		JLabel lblNewLabel_4 = new JLabel("New label");
+		lblNewLabel_4.setForeground(new Color(204, 153, 0));
+		lblNewLabel_4.setBounds(0, 0, 461, 320);
+		frame.getContentPane().add(lblNewLabel_4);
+		lblNewLabel_4.setIcon(fundo);
 	}
 }

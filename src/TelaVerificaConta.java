@@ -1,9 +1,12 @@
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -12,6 +15,8 @@ public class TelaVerificaConta {
 
 	private JFrame frame;
 	private JTextField textField;
+	ImageIcon fundo = new ImageIcon(getClass().getResource("Fundo3.png"));
+	ImageIcon fundo2 = new ImageIcon(getClass().getResource("Fundo4.png"));
 	
 	/**
 	 * Launch the application.
@@ -47,6 +52,9 @@ public class TelaVerificaConta {
 		
 		JLabel lblNewLabel = new JLabel("CONTA :");
 		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		if(tipo >= 2) {
+			lblNewLabel.setForeground(new Color(214, 170, 35));
+		}
 		lblNewLabel.setBounds(111, 133, 79, 24);
 		frame.getContentPane().add(lblNewLabel);
 		
@@ -59,11 +67,32 @@ public class TelaVerificaConta {
 		btnEfetuar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(tipo==0) {
-					frame.setVisible(false);
-					TelaExtrato.main(null);
-				}else {
-					frame.setVisible(false);
-					TelaSaldo.main(null);
+					String v = Menu.verificaExtratoCliente(Integer.parseInt(textField.getText()));
+					if(v!="inexistente") {
+						frame.setVisible(false);
+						TelaExtrato.main(null,Integer.parseInt(textField.getText()));
+					} else {
+						JOptionPane.showMessageDialog(null, "Numero da Conta errado!","BANCO JURA",JOptionPane.WARNING_MESSAGE);
+					}
+				}else if(tipo==1) {
+					if(Menu.acoesCliente(4,null, Integer.parseInt(textField.getText()), 0)) {
+						frame.setVisible(false);
+						TelaCliente.main(null);
+					}
+				} else if(tipo==2){
+					if(Menu.verificaConta(Integer.parseInt(textField.getText()))) {
+						frame.setVisible(false);
+						TelaVerificaInfos.main(null,Integer.parseInt(textField.getText()));
+					} else {
+						JOptionPane.showMessageDialog(null, "Numero da Conta errado!","BANCO JURA",JOptionPane.WARNING_MESSAGE);
+					}
+				}else if(tipo == 3) {
+					if(Menu.verificaConta(Integer.parseInt(textField.getText()))) {
+						frame.setVisible(false);
+						TelaAlterarDados.main(null,Integer.parseInt(textField.getText()));
+					}else {
+						JOptionPane.showMessageDialog(null, "Numero da Conta errado!","BANCO JURA",JOptionPane.WARNING_MESSAGE);
+					}
 				}
 			}
 		});
@@ -73,13 +102,30 @@ public class TelaVerificaConta {
 		
 		JButton btnVoltar = new JButton("<-- VOLTAR");
 		btnVoltar.setFont(new Font("Century", Font.PLAIN, 7));
-		btnVoltar .addActionListener(new ActionListener() {
+		
+		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-					frame.setVisible(false);
-					TelaCliente.main(null);
+				if(tipo >= 2) {
+				frame.setVisible(false);
+				TelaGerente.main(null);}else {frame.setVisible(false);
+				TelaCliente.main(null);}
 			}
 		});
 		btnVoltar.setBounds(10, 11, 79, 24);
 		frame.getContentPane().add(btnVoltar);
+		
+		if(tipo >= 2) {
+			JLabel lblNewLabel_4 = new JLabel("New label");
+			lblNewLabel_4.setForeground(new Color(204, 153, 0));
+			lblNewLabel_4.setBounds(0, 0, 461, 320);
+			frame.getContentPane().add(lblNewLabel_4);
+			lblNewLabel_4.setIcon(fundo);
+		}else {
+			JLabel lblNewLabel_4 = new JLabel("New label");
+			lblNewLabel_4.setForeground(new Color(204, 153, 0));
+			lblNewLabel_4.setBounds(0, 0, 461, 320);
+			frame.getContentPane().add(lblNewLabel_4);
+			lblNewLabel_4.setIcon(fundo2);
+		}
 	}
 }

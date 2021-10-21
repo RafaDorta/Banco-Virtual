@@ -1,20 +1,23 @@
 import java.awt.Color;
 import java.awt.EventQueue;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 
-public class TelaExtrato {
+import javax.swing.JTextArea;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JLabel;
+
+import javax.swing.JScrollPane;
+
+public class TelaVerificaInfos {
 
 	private JFrame frame;
-	ImageIcon fundo = new ImageIcon(getClass().getResource("Fundo4.png"));
+	ImageIcon fundo = new ImageIcon(getClass().getResource("Fundo3.png"));
 
 	/**
 	 * Launch the application.
@@ -23,7 +26,7 @@ public class TelaExtrato {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaExtrato window = new TelaExtrato(conta);
+					TelaVerificaInfos window = new TelaVerificaInfos(conta);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -35,7 +38,7 @@ public class TelaExtrato {
 	/**
 	 * Create the application.
 	 */
-	public TelaExtrato(int conta) {
+	public TelaVerificaInfos(int conta) {
 		initialize(conta);
 	}
 
@@ -43,37 +46,41 @@ public class TelaExtrato {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize(int conta) {
+		
 		frame = new JFrame();
-		frame.setBounds(100, 100, 477, 359);
+		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JButton btnVoltar = new JButton("<-- VOLTAR");
-		btnVoltar .addActionListener(new ActionListener() {
+		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
-				TelaCliente.main(null);
+				TelaGerente.main(null);
 			}
 		});
-		btnVoltar.setFont(new Font("Century", Font.PLAIN, 7));
+		btnVoltar.setFont(new Font("Century", Font.PLAIN, 8));
 		btnVoltar.setBounds(10, 11, 79, 24);
 		frame.getContentPane().add(btnVoltar);
 		
-		JLabel lblNewLabel = new JLabel("EXTRATO:");
+		JTextArea textArea = new JTextArea();
+		textArea.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		textArea.setText(Menu.verificaInfosConta(conta));
+		textArea.setBackground(new Color(69, 69, 69));
+		textArea.setForeground(new Color(214, 170, 35));
+		frame.getContentPane().add(textArea);
+		
+		JLabel lblNewLabel = new JLabel("Informa\u00E7\u00F5es da Conta");
+		lblNewLabel.setForeground(new Color(214, 170, 35));
 		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblNewLabel.setBounds(192, 53, 96, 14);
+		lblNewLabel.setBounds(150, 31, 180, 24);
 		frame.getContentPane().add(lblNewLabel);
 		
-		JTextArea textExtrato = new JTextArea();
-		textExtrato.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		textExtrato.setBounds(104, 78, 273, 214);
-		textExtrato.setText(Menu.verificaExtratoCliente(conta));
-		frame.getContentPane().add(textExtrato);
-		
-		JScrollPane scrollPane = new JScrollPane(textExtrato);
+		JScrollPane scrollPane = new JScrollPane(textArea);
 		scrollPane.setToolTipText("");
-		scrollPane.setBounds(80, 90, 302, 153);
+		scrollPane.setBounds(70, 66, 302, 153);
 		frame.getContentPane().add(scrollPane);
+		
 		
 		JLabel lblNewLabel_4 = new JLabel("New label");
 		lblNewLabel_4.setForeground(new Color(204, 153, 0));
@@ -81,6 +88,5 @@ public class TelaExtrato {
 		frame.getContentPane().add(lblNewLabel_4);
 		lblNewLabel_4.setIcon(fundo);
 		
-	
 	}
 }

@@ -1,20 +1,24 @@
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 public class TelaTransferencia {
 
 	private JFrame frame;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	private JTextField textEnvia;
+	private JTextField textRecebe;
+	private JTextField textValor;
 	private JButton btnNewButton;
+	ImageIcon fundo = new ImageIcon(getClass().getResource("Fundo3.png"));
 
 	/**
 	 * Launch the application.
@@ -51,48 +55,65 @@ public class TelaTransferencia {
 		JButton btnVoltar = new JButton("<-- VOLTAR");
 		btnVoltar .addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-					frame.setVisible(false);
-					TelaGerente.main(null);
+				frame.setVisible(false);
+				TelaGerente.main(null);
 			}
 		});
 		btnVoltar.setFont(new Font("Century", Font.PLAIN, 8));
 		btnVoltar.setBounds(10, 11, 79, 24);
 		frame.getContentPane().add(btnVoltar);
 		
-		textField = new JTextField();
-		textField.setColumns(10);
-		textField.setBounds(141, 99, 182, 20);
-		frame.getContentPane().add(textField);
+		textEnvia = new JTextField();
+		textEnvia.setColumns(10);
+		textEnvia.setBounds(141, 99, 182, 20);
+		frame.getContentPane().add(textEnvia);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(141, 155, 182, 20);
-		frame.getContentPane().add(textField_1);
+		textRecebe = new JTextField();
+		textRecebe.setColumns(10);
+		textRecebe.setBounds(141, 155, 182, 20);
+		frame.getContentPane().add(textRecebe);
 		
 		JLabel lblNewLabel_2 = new JLabel("*-*-*  CONTA DO DESTINATARIO  *-*-*  ");
+		lblNewLabel_2.setForeground(new Color(214, 170, 35));
 		lblNewLabel_2.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		lblNewLabel_2.setBounds(85, 130, 295, 14);
 		frame.getContentPane().add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_2_1 = new JLabel("*-*-*  CONTA DO REMETENTE  *-*-*  ");
+		lblNewLabel_2_1.setForeground(new Color(214, 170, 35));
 		lblNewLabel_2_1.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		lblNewLabel_2_1.setBounds(95, 74, 275, 14);
 		frame.getContentPane().add(lblNewLabel_2_1);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("VALOR");
+		lblNewLabel_1_1.setForeground(new Color(214, 170, 35));
 		lblNewLabel_1_1.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		lblNewLabel_1_1.setBounds(204, 186, 57, 24);
 		frame.getContentPane().add(lblNewLabel_1_1);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(167, 210, 130, 20);
-		frame.getContentPane().add(textField_2);
+		textValor = new JTextField();
+		textValor.setColumns(10);
+		textValor.setBounds(167, 210, 130, 20);
+		frame.getContentPane().add(textValor);
 		
 		btnNewButton = new JButton("TRANSFERIR");
 		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(Menu.acoesGerente(2, Integer.parseInt(textEnvia.getText()), Integer.parseInt(textRecebe.getText()), Double.parseDouble(textValor.getText()), 0)) {
+					JOptionPane.showMessageDialog(null, "Dinheiro Transferido para Conta: " + Integer.parseInt(textRecebe.getText()));
+					frame.setVisible(false);
+					TelaGerente.main(null);	
+				}
+			}
+		});
 		btnNewButton.setBounds(167, 262, 130, 23);
 		frame.getContentPane().add(btnNewButton);
+		
+		JLabel lblNewLabel_4 = new JLabel("New label");
+		lblNewLabel_4.setForeground(new Color(204, 153, 0));
+		lblNewLabel_4.setBounds(0, 0, 461, 320);
+		frame.getContentPane().add(lblNewLabel_4);
+		lblNewLabel_4.setIcon(fundo);
 	}
-
 }
