@@ -1,0 +1,4 @@
+Banco Virtual é um projeto realizado em duplas durante a disciplina de Paradigmas de Programação. 
+Nele você pode cadastrar clientes e gerentes de um banco, e cada tipo de usuário (gerente e cliente) tem suas funcionalidades em seus respectivos menus.
+Além disso utilizamos interface gráfica, e salvamos alguns dados dos usuários e criptografamos eles em um arquivo txt.
+O projeto foi desenvolvido por: Júlia de Miranda Gomes; e Rafael Alves Dorta.
